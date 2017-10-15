@@ -8,7 +8,12 @@
   	color: #555555;
 }
 
-.container-fluid {
+.bodyContainer {
 	padding-top: 10%;
 	padding-bottom: 10%;
+}
+
+.navbar {
+  margin-bottom: 0 !important; 
+  border-radius: 0 !important;
 }
