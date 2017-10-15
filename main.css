@@ -17,3 +17,40 @@
   margin-bottom: 0 !important; 
   border-radius: 0 !important;
 }
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+}
+
+body {
+    font: 20px "Montserrat", sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+}
+
+p {font-size: 16px;}
