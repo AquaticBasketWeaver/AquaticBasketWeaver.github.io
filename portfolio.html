@@ -44,7 +44,6 @@
         <img src="./Photos/Purple Flower.jpg">
         <div class="carousel-caption">
           <h3>Macro Shot</h3>
-          <p>Casual shot of some of my Mom's flowers</p>
         </div>
       </div>
 
@@ -52,7 +51,6 @@
         <img src="./Photos/Toronto on Trees.jpg">
         <div class="carousel-caption">
           <h3>Toronto</h3>
-          <p>Taken from a ferris wheel on Center Island</p>
         </div>
       </div>
 
@@ -60,7 +58,6 @@
         <img src="./Photos/Riverwood.jpg">
         <div class="carousel-caption">
           <h3>Riverwood Path</h3>
-          <p>A windy path at the local conservatory</p>
         </div>
       </div>
     </div>
@@ -75,10 +72,157 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
+
 <div class="container-fluid bodyContainer text-center">
-  <h3>My Portfolio</h3>
-  <p>Make this part like instagram grid system</p>
+  <h1 class="margin">My Portfolio</h1>
+  <div class="container">
+    <div class="row">
+      <div class='col-sm-4 column'>
+        <div class="thumbnail">
+          <img src="./Photos/carousel.jpg" onclick="openModal();currentSlide(1)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="CNE">
+          <div class="caption">
+            <p>CNE</p>
+          </div>
+        </div>
+      </div>
+      <div class='col-sm-4 column'>
+        <div class="thumbnail">
+          <img src="./Photos/close up bee.jpg" onclick="openModal();currentSlide(2)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="Waterloo Park">
+          <div class="caption">
+            <p>Waterloo Park</p>
+          </div>
+        </div>
+      </div>
+        <div class='col-sm-4 column'>
+          <div class="thumbnail">
+            <img src="./Photos/green forest.jpg" onclick="openModal();currentSlide(3)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="Frank Mckechnie">
+            <div class="caption">
+              <p>Frank Mckechnie</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-sm-4 column'>
+          <div class="thumbnail">
+            <img src="./Photos/Riverwood.jpg" onclick="openModal();currentSlide(4)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="Riverwood Park">
+            <div class="caption">
+              <p>Riverwood Park</p>
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4 column'>
+          <div class="thumbnail">
+            <img src="./Photos/Toronto on Trees.jpg" onclick="openModal();currentSlide(5)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="Toronto">
+            <div class="caption">
+              <p>Toronto</p>
+            </div>
+          </div>
+        </div>
+          <div class='col-sm-4 column'>
+            <div class="thumbnail">
+              <img src="./Photos/Purple Flower.jpg" onclick="openModal();currentSlide(6)" class="img-responsive margin hover-shadow cursor" style="width:100%" alt="Home">
+              <div class="caption">
+                <p>Home</p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 6</div>
+      <img class="cap img-responsive" src="./Photos/carousel.jpg" style="width:100%" alt="CNE">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 6</div>
+      <img class="cap img-responsive" src="./Photos/close up bee.jpg" style="width:100%" alt="Waterloo Park">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 6</div>
+      <img class="cap img-responsive" src="./Photos/green forest.jpg" style="width:100%" alt="Frank Mckechnie">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 6</div>
+      <img class="cap img-responsive" src="./Photos/Riverwood.jpg" style="width:100%" alt="Riverwood Park">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 6</div>
+      <img class="cap img-responsive" src="./Photos/Toronto on Trees.jpg" style="width:100%" alt="Toronto">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 6</div>
+      <img class="cap img-responsive" src="./Photos/Purple Flower.jpg" style="width:100%" alt="Home">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <br>
+      <p id="caption"></p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// Open the Modal
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("cap");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  // for (i = 0; i < dots.length; i++) {
+  //   dots[i].className = dots[i].className.replace(" active", "");
+  // }
+  slides[slideIndex-1].style.display = "block";
+  // dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+  // captionText.innerHTML = slides[slideIndex-1].alt;
+}
+</script>
+
 </body>
 </html>
 
