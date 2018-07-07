@@ -1,2 +1,2 @@
 # AquaticBasketWeaver.github.io
-A website that centers around the things that I have done and my life
+A website to practice web and to show off a bit of photography
