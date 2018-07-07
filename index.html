@@ -6,30 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#">Home</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="portfolio.html">Picture Portfolio</a></li>
-        <li><a href="Reviews.html">Reviews</a></li>
-        <li><a href="Tutorials.html">Tutorials</a></li>
-        <li><a href="Contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+<!--NavBar-->
+<div id='navbarPlaceholder' class="test">
+
+</div>
+
 <div class="container-fluid about-bg bodyContainer text-center">
 	<h1 class="margin">About me</h1>
 	<p>
@@ -39,6 +25,7 @@
      This website serves to display my hobbies as well as to offer any tutorials and basic how-to's that I have learned over the years. 
   </p>
 </div>
+
 <div class="container-fluid news-bg bodyContainer text-center">
 	<h1 class="margin">Interests</h1>
 	<div class="container">
@@ -58,5 +45,11 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function () {
+  $("#navbarPlaceholder").load("nav.html");
+});
+</script>
 </body>
 </html>
