@@ -12,6 +12,7 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+const { series, parallel } = require('gulp');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -120,6 +121,7 @@ function watchFiles() {
   gulp.watch("./**/*.html", browserSyncReload);
 }
 
+
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
 const build = gulp.series(vendor, gulp.parallel(css, js));
@@ -132,4 +134,5 @@ exports.clean = clean;
 exports.vendor = vendor;
 exports.build = build;
 exports.watch = watch;
+exports.watchFiles = watchFiles;
 exports.default = build;
