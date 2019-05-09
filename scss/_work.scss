@@ -1,0 +1,23 @@
+// Styling for work section
+.work-section {
+    padding: 0rem 3rem;
+}
+
+hr.work-divider {
+    border-width: 1px;
+    border-color: $lightBlue;
+}
+
+.work-padding {
+    padding: 3rem 0;
+}
+
+#work {
+    p, h1 {
+        // color: $midBlue;
+        font-weight: normal;
+    }
+    h6 {
+        font-weight: lighter;
+    }
+}
