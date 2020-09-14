@@ -61,6 +61,6 @@ function Welcome() {
         </Typography>
       </Box>
   );
-}
+};
 
 export default Welcome;
