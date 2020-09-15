@@ -1,0 +1,9 @@
+Future:
+    - Move img folder onto an actual server
+    - Move resume stuff into an actual server
+
+Present:
+    - Fix the navbar
+    - Make it mobile friendly
+    - Implement all feature sets
+    - Fix font on Work Experience section
