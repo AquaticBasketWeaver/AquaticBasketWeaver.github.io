@@ -43,6 +43,7 @@ const useStyles = makeStyles(() => ({
   },
   pointsContainer: {
     marginTop: ".5rem",
+    marginBottom: "2rem",
   },
 }));
 
