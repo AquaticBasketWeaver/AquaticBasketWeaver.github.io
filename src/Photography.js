@@ -39,17 +39,16 @@ import t_torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
   container: {},
-  media: {
-    height: 0,
-    paddingTop: "66.71%", // since photos are like 4008 x 6008
-  },
+  // media: {
+  //   height: 0,
+  //   paddingTop: "66.71%", // since photos are like 4008 x 6008
+  // },
   thumbnail: {
     maxWidth: "100%",
     height: "auto",
     display: "block",
     position: "relative",
     top: "-100%",
-    // transform: "translate(0, -100%)",
   },
   thumbnailContainer: {},
   tint: {
@@ -78,19 +77,23 @@ function Photography() {
     createPhotoObj(t_DSC_0028, DSC_0028),
     createPhotoObj(t_DSC_0035, DSC_0035),
     createPhotoObj(t_DSC_0063, DSC_0063),
-    createPhotoObj(t_DSC_0078, DSC_0078),
+    createPhotoObj(t_torontoOnTrees, torontoOnTrees),
     createPhotoObj(t_greenForestry, greenForestry),
     createPhotoObj(t_purpleFlower, purpleFlower),
     createPhotoObj(t_riverwood, riverwood),
-    createPhotoObj(t_torontoOnTrees, torontoOnTrees),
+    createPhotoObj(t_DSC_0078, DSC_0078),
   ];
+
+  const onThumbnailClick = (image) => {
+    alert(image)
+  };
 
   const generatePhotoGrid = () => {
     return (
       <Grid container spacing={0}>
         {photoArray.map((photoObj) => (
           <Grid className={classes.thumbnailContainer} item xs={4}>
-            <div className={classes.tint} onClick={() => alert(photoObj.image)}></div>
+            <div className={classes.tint} onClick={() => onThumbnailClick(photoObj.image)}></div>
             <img className={classes.thumbnail} src={photoObj.thumbnail} />
           </Grid>
         ))}
