@@ -9,7 +9,6 @@ import resume from "./Resume/resume.yaml";
 const yaml = require("js-yaml");
 
 const useStyles = makeStyles(() => ({
-  workExperienceContainer: {},
   listContainer: {
     padding: "3rem 0",
   },
