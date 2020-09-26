@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Grid,
   makeStyles,
+  Modal,
   Card,
   CardMedia,
   CardContent,
+  Typography,
 } from "@material-ui/core";
 import Banner from "./Banner";
 
@@ -43,12 +45,18 @@ const useStyles = makeStyles(() => ({
   //   height: 0,
   //   paddingTop: "66.71%", // since photos are like 4008 x 6008
   // },
+  modalContainer: {
+    display: "flex",
+  },
   thumbnail: {
     maxWidth: "100%",
     height: "auto",
     display: "block",
     position: "relative",
-    top: "-100%",
+  },
+  card: {
+    width: "345px",
+    margin: "auto",
   },
   thumbnailContainer: {},
   tint: {
@@ -58,6 +66,7 @@ const useStyles = makeStyles(() => ({
     transition: "0.5s",
     zIndex: "1",
     cursor: "pointer",
+    top: "-100%",
     "&:hover": {
       backgroundColor: "rgba(38,149,235,.3)",
     },
@@ -66,6 +75,7 @@ const useStyles = makeStyles(() => ({
 
 function Photography() {
   const classes = useStyles();
+  const [modalOpen, setModalOpen] = useState(false);
 
   // TODO: replace this when you move your photos onto s3 or something
   const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
@@ -85,7 +95,8 @@ function Photography() {
   ];
 
   const onThumbnailClick = (image) => {
-    alert(image)
+    setModalOpen(true);
+    // alert(image)
   };
 
   const generatePhotoGrid = () => {
@@ -93,8 +104,11 @@ function Photography() {
       <Grid container spacing={0}>
         {photoArray.map((photoObj) => (
           <Grid className={classes.thumbnailContainer} item xs={4}>
-            <div className={classes.tint} onClick={() => onThumbnailClick(photoObj.image)}></div>
             <img className={classes.thumbnail} src={photoObj.thumbnail} />
+            <div
+              className={classes.tint}
+              onClick={() => onThumbnailClick(photoObj.image)}
+            ></div>
           </Grid>
         ))}
       </Grid>
@@ -120,6 +134,19 @@ function Photography() {
           },
         }}
       />
+      <Modal
+        className={classes.modalContainer}
+        open={modalOpen}
+        onClose={() => {
+          setModalOpen(false);
+        }}
+      >
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="body1">hi</Typography>
+          </CardContent>
+        </Card>
+      </Modal>
     </Box>
   );
 }
