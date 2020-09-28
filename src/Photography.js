@@ -55,8 +55,11 @@ const useStyles = makeStyles(() => ({
     position: "relative",
   },
   card: {
-    width: "345px",
+    width: "80%",
     margin: "auto",
+  },
+  cardImage: {
+    width: "100%"
   },
   thumbnailContainer: {},
   tint: {
@@ -76,6 +79,7 @@ const useStyles = makeStyles(() => ({
 function Photography() {
   const classes = useStyles();
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalImg, setModalImg] = useState();
 
   // TODO: replace this when you move your photos onto s3 or something
   const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
@@ -95,8 +99,8 @@ function Photography() {
   ];
 
   const onThumbnailClick = (image) => {
+    setModalImg(image);
     setModalOpen(true);
-    // alert(image)
   };
 
   const generatePhotoGrid = () => {
@@ -114,6 +118,23 @@ function Photography() {
       </Grid>
     );
   };
+
+  const generateModal = () => (
+    <Modal
+      className={classes.modalContainer}
+      open={modalOpen}
+      onClose={() => {
+        setModalOpen(false);
+      }}
+    >
+      <Card className={classes.card}>
+        <CardContent>
+          {/* <Typography variant="body1">{modalImg}</Typography> */}
+          <img className={classes.cardImage} src={modalImg} />
+        </CardContent>
+      </Card>
+    </Modal>
+  );
 
   return (
     <Box>
@@ -134,19 +155,7 @@ function Photography() {
           },
         }}
       />
-      <Modal
-        className={classes.modalContainer}
-        open={modalOpen}
-        onClose={() => {
-          setModalOpen(false);
-        }}
-      >
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography variant="body1">hi</Typography>
-          </CardContent>
-        </Card>
-      </Modal>
+      {generateModal()}
     </Box>
   );
 }
