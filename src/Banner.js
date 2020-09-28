@@ -14,7 +14,6 @@ const useStyles = makeStyles(() => {
     }),
     title: (props) => ({
       color: "white",
-      fontWeight: "bold",
       ...(props && props.title),
     }),
     divider: (props) => ({
@@ -36,10 +35,14 @@ const useStyles = makeStyles(() => {
       width: "760px",
       ...(props && props.caption),
     }),
+    children: (props) => ({
+      marginTop: "3rem",
+      ...(props && props.children),
+    }),
   };
 });
 
-function Banner({ title, caption, style }) {
+function Banner({ title, caption, style, children }) {
   const classes = useStyles(style);
   return (
     <Box className={classes.container}>
@@ -54,6 +57,7 @@ function Banner({ title, caption, style }) {
           </Typography>
         </>
       )}
+      {children && <Box className={classes.children}>{children}</Box>}
     </Box>
   );
 }

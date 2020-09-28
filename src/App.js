@@ -5,6 +5,7 @@ import Welcome from "./Welcome";
 import About from "./About";
 import WorkExperience from "./WorkExperience";
 import Photography from "./Photography";
+import ContactMe from "./ContactMe";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <About />
       <WorkExperience />
       <Photography />
+      <ContactMe />
     </div>
   );
 }

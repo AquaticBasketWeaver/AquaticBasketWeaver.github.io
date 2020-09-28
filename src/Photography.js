@@ -40,7 +40,6 @@ import t_riverwood from "./img/thumbnails/Riverwood-min.jpg";
 import t_torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
-  container: {},
   media: {
     paddingTop: "66.71%", // since photos are like 4008 x 6008
   },
@@ -60,7 +59,6 @@ const useStyles = makeStyles(() => ({
   cardImage: {
     width: "100%"
   },
-  thumbnailContainer: {},
   tint: {
     height: "100%",
     width: "100%",
@@ -92,8 +90,8 @@ function Photography() {
     createPhotoObj(t_DSC_0063, DSC_0063),
     createPhotoObj(t_torontoOnTrees, torontoOnTrees),
     createPhotoObj(t_greenForestry, greenForestry),
-    createPhotoObj(t_purpleFlower, purpleFlower),
     createPhotoObj(t_riverwood, riverwood),
+    createPhotoObj(t_purpleFlower, purpleFlower),
     createPhotoObj(t_DSC_0078, DSC_0078),
   ];
 
@@ -150,14 +148,6 @@ function Photography() {
         }}
       />
       {generatePhotoGrid()}
-      <Banner
-        title={"TODO: you need a view more button"}
-        style={{
-          container: {
-            backgroundColor: "#1e7ad6",
-          },
-        }}
-      />
       {generateModal()}
     </Box>
   );
