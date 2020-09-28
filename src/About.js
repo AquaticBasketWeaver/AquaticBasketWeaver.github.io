@@ -1,9 +1,10 @@
 import React from "react";
 import Banner from "./Banner";
 
-function About() {
+function About({ id }) {
   return (
     <Banner
+      id={id}
       title={"About Me"}
       caption={`Hey there! I am a fourth year computer science student currently studying at the University of Waterloo.
       I have a passion for programming, technology, and in general, learning new things so that I can apply them in creative ways.

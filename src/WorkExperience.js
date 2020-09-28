@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function WorkExperience() {
+function WorkExperience({ id }) {
   const classes = useStyles();
   const [parsedResume, setParsedResume] = useState({});
 
@@ -61,7 +61,7 @@ function WorkExperience() {
 
   const workSection = (experience) => {
     return (
-      <Box className={classes.listContainer}>
+      <Box className={classes.listContainer} id={id}>
         <Grid container>
           <Grid item xs={6}>
             <Box className={classes.orgContainer}>

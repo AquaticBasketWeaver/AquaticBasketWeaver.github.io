@@ -73,7 +73,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Photography() {
+function Photography({ id }) {
   const classes = useStyles();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImg, setModalImg] = useState();
@@ -138,7 +138,7 @@ function Photography() {
   );
 
   return (
-    <Box>
+    <Box id={id}>
       <Banner
         title={"Photography"}
         style={{

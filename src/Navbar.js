@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -30,39 +30,96 @@ const useStyles = makeStyles(() => ({
     top: "0",
     right: "0",
     left: "0",
-    zindex: "1030",
+    zIndex: "1030",
     boxShadow: "none",
     backgroundColor: "transparent",
+    transition: "background-color 200ms linear",
+  },
+  appBarScroll: {
+    backgroundColor: "#fff",
+    transition: "background-color 200ms linear",
   },
   navButtonText: {
     color: "rgba(255,255,255,.7)",
     fontWeight: "bold",
+  },
+  navButtonTextScroll: {
+    color: "black",
   }
 }));
 
-function Navbar() {
+function Navbar({ scrollAnchors }) {
   const classes = useStyles();
+
+  let listener = null;
+  const [scrollState, setScrollState] = useState("top");
+
+  useEffect(() => {
+    listener = document.addEventListener("scroll", (e) => {
+      var scrolled = document.scrollingElement.scrollTop;
+      if (scrolled >= 120) {
+        if (scrollState !== "") {
+          setScrollState("");
+        }
+      } else {
+        if (scrollState !== "top") {
+          setScrollState("top");
+        }
+      }
+    });
+    return () => {
+      document.removeEventListener("scroll", listener);
+    };
+  }, [scrollState]);
+
+  const buttonTextScrollChange = classes.navButtonText + " " + (!scrollState && classes.navButtonTextScroll)
+
   return (
-    <AppBar className={classes.appBar} position="static" color="default">
+    <AppBar className={classes.appBar + " " + (!scrollState && classes.appBarScroll)} position="static">
       <Toolbar className={classes.toolbar}>
         <Box className={classes.toolbarContainer}>
           <Box className={classes.leftButtonGroup}>
-            <Button className={classes.toolbarButton}>
-              <Typography className={classes.navButtonText} variant="h6">Welcome</Typography>
+            <Button
+              className={classes.toolbarButton}
+              href={`#${scrollAnchors.welcome}`}
+            >
+              <Typography className={buttonTextScrollChange} variant="h6">
+                Welcome
+              </Typography>
             </Button>
           </Box>
           <Box className={classes.rightButtonGroup}>
-            <Button className={classes.toolbarButton}>
-              <Typography className={classes.navButtonText} variant="body1">About</Typography>
+            <Button
+              className={classes.toolbarButton}
+              href={`#${scrollAnchors.about}`}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                About
+              </Typography>
             </Button>
-            <Button className={classes.toolbarButton}>
-              <Typography className={classes.navButtonText} variant="body1">Work</Typography>
+            <Button
+              className={classes.toolbarButton}
+              href={`#${scrollAnchors.work}`}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                Work
+              </Typography>
             </Button>
-            <Button className={classes.toolbarButton}>
-              <Typography className={classes.navButtonText} variant="body1">Photography</Typography>
+            <Button
+              className={classes.toolbarButton}
+              href={`#${scrollAnchors.photography}`}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                Photography
+              </Typography>
             </Button>
-            <Button className={classes.toolbarButton}>
-              <Typography className={classes.navButtonText} variant="body1">Contact</Typography>
+            <Button
+              className={classes.toolbarButton}
+              href={`#${scrollAnchors.contact}`}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                Contact
+              </Typography>
             </Button>
           </Box>
         </Box>

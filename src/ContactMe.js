@@ -22,10 +22,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ContactMe() {
+function ContactMe({ id }) {
   const classes = useStyles();
   return (
-    <Box>
+    <Box id={id}>
       <Banner
         title={"Contact Me"}
         caption={`Want to get in touch? You're welcome to send me an e-mail and I'll respond as soon as possible!`}

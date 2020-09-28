@@ -42,10 +42,10 @@ const useStyles = makeStyles(() => {
   };
 });
 
-function Banner({ title, caption, style, children }) {
+function Banner({ title, caption, style, children, id }) {
   const classes = useStyles(style);
   return (
-    <Box className={classes.container}>
+    <Box className={classes.container} id={id}>
       <Typography className={classes.title} variant="h4">
         {title}
       </Typography>

@@ -51,10 +51,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Welcome() {
+function Welcome({ id }) {
   const classes = useStyles();
   return (
-      <Box className={classes.container}>
+      <Box className={classes.container} id={id} >
         <Typography className={classes.title} variant="h3">WELCOME</Typography>
         <hr className={classes.divider} />
         <Typography className={classes.caption} variant="h6">
