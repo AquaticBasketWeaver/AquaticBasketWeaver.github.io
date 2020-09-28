@@ -41,10 +41,9 @@ import t_torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
   container: {},
-  // media: {
-  //   height: 0,
-  //   paddingTop: "66.71%", // since photos are like 4008 x 6008
-  // },
+  media: {
+    paddingTop: "66.71%", // since photos are like 4008 x 6008
+  },
   modalContainer: {
     display: "flex",
   },
@@ -55,7 +54,7 @@ const useStyles = makeStyles(() => ({
     position: "relative",
   },
   card: {
-    width: "80%",
+    width: "70%",
     margin: "auto",
   },
   cardImage: {
@@ -119,6 +118,8 @@ function Photography() {
     );
   };
 
+  // TODO: add descriptions and such to your photos
+  // will probably have to add something to photoObj
   const generateModal = () => (
     <Modal
       className={classes.modalContainer}
@@ -128,10 +129,12 @@ function Photography() {
       }}
     >
       <Card className={classes.card}>
-        <CardContent>
-          {/* <Typography variant="body1">{modalImg}</Typography> */}
-          <img className={classes.cardImage} src={modalImg} />
-        </CardContent>
+        <CardMedia
+          className={classes.media}
+          image={modalImg}
+        />
+        {/* <CardContent>
+        </CardContent> */}
       </Card>
     </Modal>
   );
