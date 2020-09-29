@@ -9,3 +9,4 @@ Present:
 
 If you have time:
     - Fix font on Work Experience section
+    - Fix navbar highlight button behaviour when at top of page (and navbar is transparent)
