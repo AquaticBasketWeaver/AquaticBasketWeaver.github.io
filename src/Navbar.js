@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { scroller } from "react-scroll";
 import {
   AppBar,
   Toolbar,
@@ -7,6 +8,8 @@ import {
   Box,
   makeStyles,
 } from "@material-ui/core";
+
+const navBarHeight = 64;
 
 const useStyles = makeStyles(() => ({
   leftButtonGroup: {
@@ -34,9 +37,11 @@ const useStyles = makeStyles(() => ({
     boxShadow: "none",
     backgroundColor: "transparent",
     transition: "background-color 200ms linear",
+    height: `${navBarHeight}px`,
   },
   appBarScroll: {
     backgroundColor: "#fff",
+    boxShadow: "0 .5rem 1rem rgba(0,0,0,.15)",
     transition: "background-color 200ms linear",
   },
   navButtonText: {
@@ -45,7 +50,7 @@ const useStyles = makeStyles(() => ({
   },
   navButtonTextScroll: {
     color: "black",
-  }
+  },
 }));
 
 function Navbar({ scrollAnchors }) {
@@ -72,16 +77,31 @@ function Navbar({ scrollAnchors }) {
     };
   }, [scrollState]);
 
-  const buttonTextScrollChange = classes.navButtonText + " " + (!scrollState && classes.navButtonTextScroll)
+  const smoothScroll = (anchor, top = false) => {
+    scroller.scrollTo(anchor, {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutCubic",
+      offset: top ? 0 : -navBarHeight,
+    });
+  };
+
+  const buttonTextScrollChange =
+    classes.navButtonText + " " + (!scrollState && classes.navButtonTextScroll);
 
   return (
-    <AppBar className={classes.appBar + " " + (!scrollState && classes.appBarScroll)} position="static">
+    <AppBar
+      className={classes.appBar + " " + (!scrollState && classes.appBarScroll)}
+      position="static"
+    >
       <Toolbar className={classes.toolbar}>
         <Box className={classes.toolbarContainer}>
           <Box className={classes.leftButtonGroup}>
             <Button
               className={classes.toolbarButton}
-              href={`#${scrollAnchors.welcome}`}
+              onClick={() => {
+                smoothScroll(scrollAnchors.welcome, true);
+              }}
             >
               <Typography className={buttonTextScrollChange} variant="h6">
                 Welcome
@@ -91,7 +111,9 @@ function Navbar({ scrollAnchors }) {
           <Box className={classes.rightButtonGroup}>
             <Button
               className={classes.toolbarButton}
-              href={`#${scrollAnchors.about}`}
+              onClick={() => {
+                smoothScroll(scrollAnchors.about);
+              }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
                 About
@@ -99,7 +121,9 @@ function Navbar({ scrollAnchors }) {
             </Button>
             <Button
               className={classes.toolbarButton}
-              href={`#${scrollAnchors.work}`}
+              onClick={() => {
+                smoothScroll(scrollAnchors.work);
+              }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
                 Work
@@ -107,7 +131,9 @@ function Navbar({ scrollAnchors }) {
             </Button>
             <Button
               className={classes.toolbarButton}
-              href={`#${scrollAnchors.photography}`}
+              onClick={() => {
+                smoothScroll(scrollAnchors.photography);
+              }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
                 Photography
@@ -115,7 +141,9 @@ function Navbar({ scrollAnchors }) {
             </Button>
             <Button
               className={classes.toolbarButton}
-              href={`#${scrollAnchors.contact}`}
+              onClick={() => {
+                smoothScroll(scrollAnchors.contact);
+              }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
                 Contact

@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
+import { Element } from "react-scroll";
 
 // TODO: remove this when photos get moved onto s3
 import cover from "./img/photos/DSC_0025.jpg";
@@ -54,15 +55,19 @@ const useStyles = makeStyles(() => ({
 function Welcome({ id }) {
   const classes = useStyles();
   return (
-      <Box className={classes.container} id={id} >
-        <Typography className={classes.title} variant="h3">WELCOME</Typography>
+    <Element name={id}>
+      <Box className={classes.container}>
+        <Typography className={classes.title} variant="h3">
+          WELCOME
+        </Typography>
         <hr className={classes.divider} />
         <Typography className={classes.caption} variant="h6">
           Hi, my name is Ivan Lam and here you'll be able to see some of the
           things I did, as well as the hobbies that I'm interested in
         </Typography>
       </Box>
+    </Element>
   );
-};
+}
 
 export default Welcome;

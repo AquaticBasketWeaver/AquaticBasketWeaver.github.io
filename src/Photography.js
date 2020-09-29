@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Element } from "react-scroll";
 import {
   Box,
   Grid,
@@ -57,7 +58,7 @@ const useStyles = makeStyles(() => ({
     margin: "auto",
   },
   cardImage: {
-    width: "100%"
+    width: "100%",
   },
   tint: {
     height: "100%",
@@ -127,10 +128,7 @@ function Photography({ id }) {
       }}
     >
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={modalImg}
-        />
+        <CardMedia className={classes.media} image={modalImg} />
         {/* <CardContent>
         </CardContent> */}
       </Card>
@@ -138,18 +136,20 @@ function Photography({ id }) {
   );
 
   return (
-    <Box id={id}>
-      <Banner
-        title={"Photography"}
-        style={{
-          container: {
-            backgroundColor: "#1e7ad6",
-          },
-        }}
-      />
-      {generatePhotoGrid()}
-      {generateModal()}
-    </Box>
+    <Element name={id}>
+      <Box>
+        <Banner
+          title={"Photography"}
+          style={{
+            container: {
+              backgroundColor: "#1e7ad6",
+            },
+          }}
+        />
+        {generatePhotoGrid()}
+        {generateModal()}
+      </Box>
+    </Element>
   );
 }
 

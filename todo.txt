@@ -4,6 +4,7 @@ Future:
 
 Present:
     - Use smooth scrolling when clicking navbar
+    - Fix navbar text button heights
     - Make it mobile friendly
     - Implement all feature sets
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
+import { Element } from "react-scroll";
 import Banner from "./Banner";
 import zenreachLogo from "./img/work/Zenreach-logo.png";
 import ctrlVLogo from "./img/work/CtrlV-logo.png";
@@ -56,34 +57,34 @@ function WorkExperience({ id }) {
   const logos = {
     zenreachLogo: zenreachLogo,
     ctrlVLogo: ctrlVLogo,
-    ttcLogo: ttcLogo
+    ttcLogo: ttcLogo,
   };
 
   const workSection = (experience) => {
     return (
-      <Box className={classes.listContainer} id={id}>
+      <Box className={classes.listContainer}>
         <Grid container>
           <Grid item xs={6}>
             <Box className={classes.orgContainer}>
-              <Typography variant="h4">
-                {experience.organization}
-              </Typography>
+              <Typography variant="h4">{experience.organization}</Typography>
               {experience.position.map((info) => (
                 <Box className={classes.pointsContainer}>
                   <Typography className={classes.orgInfo} variant="subtitle1">
                     {info.title + " | " + info.location}
                   </Typography>
-                  <Typography
-                    className={classes.orgInfo}
-                    variant="subtitle1"
-                  >
+                  <Typography className={classes.orgInfo} variant="subtitle1">
                     {info.duration}
                   </Typography>
                   <hr className={classes.divider}></hr>
                   <ul>
                     {info.points.map(({ point }) => (
                       <li>
-                        <Typography className={classes.orgPoints} variant="body1">{point}</Typography>
+                        <Typography
+                          className={classes.orgPoints}
+                          variant="body1"
+                        >
+                          {point}
+                        </Typography>
                       </li>
                     ))}
                   </ul>
@@ -110,20 +111,22 @@ function WorkExperience({ id }) {
   }, []);
 
   return (
-    <Box className={classes.workExperienceContainer}>
-      <Banner
-        title={"Work Experience"}
-        style={{
-          container: {
-            backgroundColor: "#1e7ad6",
-          },
-        }}
-      />
-      {parsedResume["Work Experience"] &&
-        parsedResume["Work Experience"].map((experience) =>
-          workSection(experience)
-        )}
-    </Box>
+    <Element name={id}>
+      <Box className={classes.workExperienceContainer}>
+        <Banner
+          title={"Work Experience"}
+          style={{
+            container: {
+              backgroundColor: "#1e7ad6",
+            },
+          }}
+        />
+        {parsedResume["Work Experience"] &&
+          parsedResume["Work Experience"].map((experience) =>
+            workSection(experience)
+          )}
+      </Box>
+    </Element>
   );
 }
 
