@@ -4,6 +4,8 @@ Future:
 
 Present:
     - Make it mobile friendly
+    - Add a "More photos" button to the photos section that leads to a new page
+    - Update your resume
 
 If you have time:
     - Fix font on Work Experience section
