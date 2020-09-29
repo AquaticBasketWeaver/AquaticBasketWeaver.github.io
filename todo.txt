@@ -6,6 +6,7 @@ Present:
     - Make it mobile friendly
     - Add a "More photos" button to the photos section that leads to a new page
     - Update your resume
+    - Fix metadata related stuff
 
 If you have time:
     - Fix font on Work Experience section
