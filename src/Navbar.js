@@ -12,13 +12,14 @@ import {
 const navBarHeight = 64;
 
 const useStyles = makeStyles(() => ({
-  leftButtonGroup: {
-    float: "left",
-  },
   rightButtonGroup: {
-    float: "right",
+    display: "flex",
+    width: "100%",
+    flexDirection: "row-reverse",
   },
   toolbarContainer: {
+    display: "flex",
+    alignItems: "center",
     maxWidth: "1140px",
     width: "100%",
   },
@@ -96,37 +97,25 @@ function Navbar({ scrollAnchors }) {
     >
       <Toolbar className={classes.toolbar}>
         <Box className={classes.toolbarContainer}>
-          <Box className={classes.leftButtonGroup}>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.welcome, true);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="h6">
-                Welcome
-              </Typography>
-            </Button>
-          </Box>
+          <Button
+            className={classes.toolbarButton}
+            onClick={() => {
+              smoothScroll(scrollAnchors.welcome, true);
+            }}
+          >
+            <Typography className={buttonTextScrollChange} variant="h6">
+              Welcome
+            </Typography>
+          </Button>
           <Box className={classes.rightButtonGroup}>
             <Button
               className={classes.toolbarButton}
               onClick={() => {
-                smoothScroll(scrollAnchors.about);
+                smoothScroll(scrollAnchors.contact);
               }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
-                About
-              </Typography>
-            </Button>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.work);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                Work
+                Contact
               </Typography>
             </Button>
             <Button
@@ -142,11 +131,21 @@ function Navbar({ scrollAnchors }) {
             <Button
               className={classes.toolbarButton}
               onClick={() => {
-                smoothScroll(scrollAnchors.contact);
+                smoothScroll(scrollAnchors.work);
               }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
-                Contact
+                Work
+              </Typography>
+            </Button>
+            <Button
+              className={classes.toolbarButton}
+              onClick={() => {
+                smoothScroll(scrollAnchors.about);
+              }}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                About
               </Typography>
             </Button>
           </Box>

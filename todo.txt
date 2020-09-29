@@ -3,10 +3,7 @@ Future:
     - Move resume stuff into an actual server
 
 Present:
-    - Use smooth scrolling when clicking navbar
-    - Fix navbar text button heights
     - Make it mobile friendly
-    - Implement all feature sets
 
 If you have time:
     - Fix font on Work Experience section
