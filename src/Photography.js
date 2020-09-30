@@ -42,6 +42,7 @@ import t_torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
   media: {
+    height: 0,
     paddingTop: "66.71%", // since photos are like 4008 x 6008
   },
   modalContainer: {
@@ -54,7 +55,8 @@ const useStyles = makeStyles(() => ({
     position: "relative",
   },
   card: {
-    width: "70%",
+    width: "95%",
+    maxWidth: "85em",
     margin: "auto",
   },
   cardImage: {
@@ -105,7 +107,7 @@ function Photography({ id }) {
     return (
       <Grid container spacing={0}>
         {photoArray.map((photoObj) => (
-          <Grid className={classes.thumbnailContainer} item xs={4}>
+          <Grid className={classes.thumbnailContainer} item md={4} sm={6} xs={12}>
             <img className={classes.thumbnail} src={photoObj.thumbnail} />
             <div
               className={classes.tint}
