@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
+import { makeStyles, Box, Grid, Typography, Hidden } from "@material-ui/core";
 import { Element } from "react-scroll";
 import Banner from "./Banner";
 import zenreachLogo from "./img/work/Zenreach-logo.png";
@@ -11,7 +11,7 @@ const yaml = require("js-yaml");
 
 const useStyles = makeStyles(() => ({
   listContainer: {
-    padding: "3rem 0",
+    padding: "3rem 6rem",
   },
   workLogo: {
     maxWidth: "100%",
@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
     borderColor: "#20baf7",
   },
   orgContainer: {
-    padding: "0 3rem",
+    paddingRight: "3rem",
   },
   orgPoints: {
     marginBottom: "1rem",
@@ -64,7 +64,7 @@ function WorkExperience({ id }) {
     return (
       <Box className={classes.listContainer}>
         <Grid container>
-          <Grid item xs={6}>
+          <Grid item sm={12} md={6}>
             <Box className={classes.orgContainer}>
               <Typography variant="h4">{experience.organization}</Typography>
               {experience.position.map((info) => (
@@ -92,9 +92,14 @@ function WorkExperience({ id }) {
               ))}
             </Box>
           </Grid>
-          <Grid className={classes.logoContainer} item xs={6}>
-            <img className={classes.workLogo} src={logos[experience.logoImg]} />
-          </Grid>
+          <Hidden smDown>
+            <Grid className={classes.logoContainer} item sm={0} md={6}>
+              <img
+                className={classes.workLogo}
+                src={logos[experience.logoImg]}
+              />
+            </Grid>
+          </Hidden>
         </Grid>
       </Box>
     );
