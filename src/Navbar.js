@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   rightButtonGroup: {
     display: "flex",
     width: "100%",
-    flexDirection: "row-reverse",
+    justifyContent: "flex-end",
   },
   toolbarContainer: {
     display: "flex",
@@ -111,21 +111,11 @@ function Navbar({ scrollAnchors }) {
             <Button
               className={classes.toolbarButton}
               onClick={() => {
-                smoothScroll(scrollAnchors.contact);
+                smoothScroll(scrollAnchors.about);
               }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
-                Contact
-              </Typography>
-            </Button>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.photography);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                Photography
+                About
               </Typography>
             </Button>
             <Button
@@ -141,11 +131,21 @@ function Navbar({ scrollAnchors }) {
             <Button
               className={classes.toolbarButton}
               onClick={() => {
-                smoothScroll(scrollAnchors.about);
+                smoothScroll(scrollAnchors.photography);
               }}
             >
               <Typography className={buttonTextScrollChange} variant="body1">
-                About
+                Photography
+              </Typography>
+            </Button>
+            <Button
+              className={classes.toolbarButton}
+              onClick={() => {
+                smoothScroll(scrollAnchors.contact);
+              }}
+            >
+              <Typography className={buttonTextScrollChange} variant="body1">
+                Contact
               </Typography>
             </Button>
           </Box>
