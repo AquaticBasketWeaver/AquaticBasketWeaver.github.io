@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { scroller } from "react-scroll";
+import { scroller, animateScroll } from "react-scroll";
 import {
   AppBar,
   Toolbar,
@@ -7,7 +7,18 @@ import {
   Button,
   Box,
   makeStyles,
+  IconButton,
+  Hidden,
+  useTheme,
+  Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemText,
+  Collapse,
+  Paper,
 } from "@material-ui/core";
+import { Menu } from "@material-ui/icons";
 
 const navBarHeight = 64;
 
@@ -34,7 +45,7 @@ const useStyles = makeStyles(() => ({
     top: "0",
     right: "0",
     left: "0",
-    zIndex: "1030",
+    zIndex: "1430",
     boxShadow: "none",
     backgroundColor: "transparent",
     transition: "background-color 200ms linear",
@@ -44,6 +55,11 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#fff",
     boxShadow: "0 .5rem 1rem rgba(0,0,0,.15)",
     transition: "background-color 200ms linear",
+    display: "flex",
+    justifyContent: "center",
+  },
+  appBarNoBoxShadow: {
+    boxShadow: "none",
   },
   navButtonText: {
     color: "rgba(255,255,255,.7)",
@@ -52,17 +68,35 @@ const useStyles = makeStyles(() => ({
   navButtonTextScroll: {
     color: "black",
   },
+  menuButton: {
+    color: "black",
+  },
+  list: {
+    paddingTop: `${navBarHeight}px`,
+    paddingLeft: `${45}px`,
+  },
 }));
 
-function Navbar({ scrollAnchors }) {
+function Navbar({ sections }) {
   const classes = useStyles();
+  const theme = useTheme();
 
-  let listener = null;
   const [scrollState, setScrollState] = useState("top");
+  const [mobileNavBar, setMobileNavBar] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  // Only runs once and determines the initial window size
+  useEffect(() => {
+    if (window.innerWidth < theme.breakpoints.values.sm) {
+      setMobileNavBar(true);
+    } else {
+      setMobileNavBar(false);
+    }
+  }, []);
 
   useEffect(() => {
-    listener = document.addEventListener("scroll", (e) => {
-      var scrolled = document.scrollingElement.scrollTop;
+    const scrollListener = document.addEventListener("scroll", (e) => {
+      const scrolled = document.scrollingElement.scrollTop;
       if (scrolled >= 120) {
         if (scrollState !== "") {
           setScrollState("");
@@ -73,82 +107,135 @@ function Navbar({ scrollAnchors }) {
         }
       }
     });
-    return () => {
-      document.removeEventListener("scroll", listener);
-    };
-  }, [scrollState]);
 
-  const smoothScroll = (anchor, top = false) => {
-    scroller.scrollTo(anchor, {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutCubic",
-      offset: top ? 0 : -navBarHeight,
+    const mobileSizeListener = window.addEventListener("resize", (e) => {
+      if (window.innerWidth < theme.breakpoints.values.sm) {
+        setMobileNavBar(true);
+      } else {
+        setMobileNavBar(false);
+        setOpenDrawer(false);
+      }
     });
+
+    return () => {
+      document.removeEventListener("scroll", scrollListener);
+      document.removeEventListener("resize", mobileSizeListener);
+    };
+  }, [scrollState, mobileNavBar, theme.breakpoints.values.sm]);
+
+  const smoothScroll = (anchor) => {
+    if (anchor) {
+      scroller.scrollTo(anchor, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutCubic",
+        offset: -navBarHeight,
+      });
+    } else {
+      animateScroll.scrollToTop({
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutCubic",
+      });
+    }
   };
 
-  const buttonTextScrollChange =
-    classes.navButtonText + " " + (!scrollState && classes.navButtonTextScroll);
+  const dynamicNavBar = (firstClass, secondClass) =>
+    `${firstClass} ${(!scrollState || mobileNavBar) && secondClass}`;
+
+  const createNavBar = () => {
+    return (
+      <Box className={classes.rightButtonGroup}>
+        {Object.entries(sections).map(([key, value]) => {
+          return (
+            <Button
+              className={classes.toolbarButton}
+              onClick={() => {
+                smoothScroll(value);
+              }}
+            >
+              <Typography
+                className={dynamicNavBar(
+                  classes.navButtonText,
+                  classes.navButtonTextScroll
+                )}
+                variant="body1"
+              >
+                {value}
+              </Typography>
+            </Button>
+          );
+        })}
+      </Box>
+    );
+  };
+
+  const createSandwichBar = () => {
+    return (
+      <List className={classes.list}>
+        {Object.entries(sections).map(([key, value]) => (
+          <ListItem
+            button
+            key={key}
+            onClick={() => {
+              setOpenDrawer(false);
+              smoothScroll(value);
+            }}
+          >
+            <ListItemText primary={value} />
+          </ListItem>
+        ))}
+      </List>
+    );
+  };
 
   return (
     <AppBar
-      className={classes.appBar + " " + (!scrollState && classes.appBarScroll)}
+      className={dynamicNavBar(classes.appBar, classes.appBarScroll) + " " + (openDrawer && classes.appBarNoBoxShadow)}
       position="static"
     >
+      <Drawer
+        anchor={"top"}
+        open={openDrawer}
+        onClose={() => {
+          setOpenDrawer(false);
+        }}
+      >
+        {createSandwichBar()}
+      </Drawer>
+
       <Toolbar className={classes.toolbar}>
         <Box className={classes.toolbarContainer}>
+          <Hidden smUp>
+            <IconButton
+              edge="start"
+              className={dynamicNavBar(null, classes.menuButton)}
+              onClick={() => {
+                setOpenDrawer(true);
+              }}
+              color="inherit"
+              aria-label="menu"
+            >
+              <Menu />
+            </IconButton>
+          </Hidden>
           <Button
             className={classes.toolbarButton}
             onClick={() => {
-              smoothScroll(scrollAnchors.welcome, true);
+              smoothScroll();
             }}
           >
-            <Typography className={buttonTextScrollChange} variant="h6">
+            <Typography
+              className={dynamicNavBar(
+                classes.navButtonText,
+                classes.navButtonTextScroll
+              )}
+              variant="h6"
+            >
               Welcome
             </Typography>
           </Button>
-          <Box className={classes.rightButtonGroup}>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.about);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                About
-              </Typography>
-            </Button>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.work);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                Work
-              </Typography>
-            </Button>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.photography);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                Photography
-              </Typography>
-            </Button>
-            <Button
-              className={classes.toolbarButton}
-              onClick={() => {
-                smoothScroll(scrollAnchors.contact);
-              }}
-            >
-              <Typography className={buttonTextScrollChange} variant="body1">
-                Contact
-              </Typography>
-            </Button>
-          </Box>
+          <Hidden only={"xs"}>{createNavBar()}</Hidden>
         </Box>
       </Toolbar>
     </AppBar>

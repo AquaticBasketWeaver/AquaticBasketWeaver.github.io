@@ -7,6 +7,7 @@ Present:
     - Add a "More photos" button to the photos section that leads to a new page
     - Update your resume
     - Fix metadata related stuff
+    - improve navbar code
 
 If you have time:
     - Fix font on Work Experience section

@@ -93,7 +93,7 @@ function WorkExperience({ id }) {
             </Box>
           </Grid>
           <Hidden smDown>
-            <Grid className={classes.logoContainer} item sm={0} md={6}>
+            <Grid className={classes.logoContainer} item md={6}>
               <img
                 className={classes.workLogo}
                 src={logos[experience.logoImg]}

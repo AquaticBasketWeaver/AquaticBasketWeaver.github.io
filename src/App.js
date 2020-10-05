@@ -7,21 +7,20 @@ import Photography from "./Photography";
 import ContactMe from "./ContactMe";
 
 function App() {
-  const scrollAnchors = {
-    welcome: "welcome",
-    about: "about",
-    work: "work",
-    photography: "photography",
-    contact: "contact",
+  const sections = {
+    about: "About",
+    work: "Work",
+    photography: "Photography",
+    contact: "Contact",
   }
   return (
     <div className="App">
-      <Navbar scrollAnchors={scrollAnchors} />
-      <Welcome id={scrollAnchors.welcome} />
-      <About id={scrollAnchors.about} />
-      <WorkExperience id={scrollAnchors.work} />
-      <Photography id={scrollAnchors.photography} />
-      <ContactMe id={scrollAnchors.contact} />
+      <Navbar sections={sections} />
+      <Welcome />
+      <About id={sections.about} />
+      <WorkExperience id={sections.work} />
+      <Photography id={sections.photography} />
+      <ContactMe id={sections.contact} />
     </div>
   );
 }
