@@ -3,12 +3,14 @@ Future:
     - Move resume stuff into an actual server
 
 Present:
-    - fix the !important in Photography.js
+    - Make mobile photo section only have thumbnails (no click photo to expand)
+    - Fix Work Experience Margin on mobile
+    - Portrait mode on mobile is hot trash
     - Add a "More photos" button to the photos section that leads to a new page
     - Update your resume
     - Fix metadata related stuff
-    - improve navbar code
 
 If you have time:
-    - Fix font on Work Experience section
     - Fix navbar highlight button behaviour when at top of page (and navbar is transparent)
+    - fix the !important in Photography.js
+    - improve navbar code
