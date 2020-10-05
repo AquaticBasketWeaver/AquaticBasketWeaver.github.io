@@ -47,6 +47,7 @@ const useStyles = makeStyles(() => ({
   },
   modalContainer: {
     display: "flex",
+    zIndex: "1500 !important",
   },
   thumbnail: {
     maxWidth: "100%",
