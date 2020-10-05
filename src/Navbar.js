@@ -222,6 +222,7 @@ function Navbar({ sections }) {
           <Button
             className={classes.toolbarButton}
             onClick={() => {
+              setOpenDrawer(false);
               smoothScroll();
             }}
           >
