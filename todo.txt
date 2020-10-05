@@ -1,0 +1,14 @@
+Future:
+    - Move img folder onto an actual server
+    - Move resume stuff into an actual server
+
+Present:
+    - Make it mobile friendly
+    - Add a "More photos" button to the photos section that leads to a new page
+    - Update your resume
+    - Fix metadata related stuff
+    - improve navbar code
+
+If you have time:
+    - Fix font on Work Experience section
+    - Fix navbar highlight button behaviour when at top of page (and navbar is transparent)

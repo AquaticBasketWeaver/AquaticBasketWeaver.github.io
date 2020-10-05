@@ -1,0 +1,48 @@
+Work Experience: 
+  - position: 
+    - title: Software Developer
+      location: Waterloo, ON
+      duration: Sep 9, 2019 - Dec 20, 2019
+      points:
+        - point: Created various microservices in Golang that consumed from and produced to various Kafka streams to process real-time customer data such as visit statistics, signaling privacy requests, and grouping
+        - point: Built a tool on top of Zenreach’s core product using React and Redux to allow account managers to set how customer data is collected at specific business locations through parameters such as signal strength, store hours, and dwell times
+        - point: Added several endpoints for the account management tool to the Django backend that facilitated the necessary transfer of data between the front end and the respective Golang microservice
+        - point: Deployed various microservices to AWS, setting up the container/infrastructure using Terraform and deploying the actual microservice using a service manifest
+        - point: Created various graphs using Grafana, giving insights into producer and consumer rates for different Kafka streams, as well as CPU, memory, and storage performance for microservice instances
+    organization: Zenreach (Greenfield Labs)
+    logoImg: zenreachLogo
+  - position: 
+    - title: VR and Web App Developer
+      location: Waterloo, ON
+      duration: Jan 7, 2019 - Apr 26, 2019
+      points:
+        - point: Created an Account Portal web app using React, allowing users to manage their waiver information, loyalty points, game credits, and etc.
+        - point: Designed a loyalty points system and implemented it into PostgreSQL database through creating tables, various trigger functions, and modifying various backend server endpoints, allowing customers to automatically earn rewards when they finish a booking
+        - point: Implemented various API endpoints critical to the functionality of the Account Portal web app and Loyalty Points System on the backend server running Node and Express
+        - point: Helped implement a item store in Unity, allowing players to change their appearance in the Ctrl V game selection lobby
+    organization: Ctrl V
+    logoImg: ctrlVLogo
+  - position: 
+    - title: Application Integration and Support Analyst (Intermediate)
+      location: Toronto, ON
+      duration: May 7, 2018 – Aug 31, 2018
+      points:
+        - point: Extensive work on employee rewards program web application using C#, HTML, and JavaScript using Visual Studio 2012
+          subpoints: 
+            - point: Handled user input and client-side validation using the jQuery library 
+            - point:  Migrated historic data in XML files into a Microsoft SQL Server database using a combination of C# scripts, and SQL queries
+        - point: Automated invoice printing based on a specific schedule using Outlook VBA and Adobe Acrobat SDK for Accounts Payable department
+        - point: Worked with QA and Software Analysts to develop solutions for bugs under tight deadlines
+        - point: Communicated with other departments to fulfill various requests and change orders on applications they are using (mostly Excel VBA and Access Applications)
+    - title: Application Integration and Support Analyst (Junior)
+      location: Toronto, ON
+      duration: May 8, 2017 – Aug 31, 2017
+      points:
+        - point: Developed a cataloguing web application in C# and HTML using Visual Studio environment
+          subpoints:
+            - point: Worked with Team Foundation Server, as well as MVC design pattern
+        - point: Constructed various queries in Microsoft SQL Server and Access databases for aggregating data to display onto Access and Crystal reports
+        - point: Automated various data entry tasks using C# scripts
+        - point: Fixed bugs in legacy programs with VBA for Excel programs and Access databases
+    organization: Toronto Transit Commission
+    logoImg: ttcLogo
