@@ -12,11 +12,8 @@ import {
   useTheme,
   Drawer,
   List,
-  Divider,
   ListItem,
   ListItemText,
-  Collapse,
-  Paper,
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 

@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { Element } from "react-scroll";
-import {
-  Box,
-  Grid,
-  makeStyles,
-  Modal,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-} from "@material-ui/core";
+import { Box, Grid, makeStyles, Modal, Hidden } from "@material-ui/core";
 import Banner from "./Banner";
 
 // TODO: remove this when you move photos onto s3
@@ -41,12 +32,14 @@ import t_riverwood from "./img/thumbnails/Riverwood-min.jpg";
 import t_torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
-  media: {
-    height: 0,
-    paddingTop: "66.71%", // since photos are like 4008 x 6008
+  modalImg: {
+    maxHeight: "90%",
+    maxWidth: "90%",
   },
   modalContainer: {
     display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     zIndex: "1500 !important",
   },
   thumbnail: {
@@ -108,12 +101,20 @@ function Photography({ id }) {
     return (
       <Grid container spacing={0}>
         {photoArray.map((photoObj) => (
-          <Grid className={classes.thumbnailContainer} item md={4} sm={6} xs={12}>
+          <Grid
+            className={classes.thumbnailContainer}
+            item
+            md={4}
+            sm={6}
+            xs={12}
+          >
             <img className={classes.thumbnail} src={photoObj.thumbnail} />
-            <div
-              className={classes.tint}
-              onClick={() => onThumbnailClick(photoObj.image)}
-            ></div>
+            <Hidden xsDown>
+              <div
+                className={classes.tint}
+                onClick={() => onThumbnailClick(photoObj.image)}
+              ></div>
+            </Hidden>
           </Grid>
         ))}
       </Grid>
@@ -130,11 +131,7 @@ function Photography({ id }) {
         setModalOpen(false);
       }}
     >
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={modalImg} />
-        {/* <CardContent>
-        </CardContent> */}
-      </Card>
+      <img className={classes.modalImg} src={modalImg} />
     </Modal>
   );
 

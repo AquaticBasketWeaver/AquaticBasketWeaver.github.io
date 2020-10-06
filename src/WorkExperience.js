@@ -11,7 +11,7 @@ const yaml = require("js-yaml");
 
 const useStyles = makeStyles(() => ({
   listContainer: {
-    padding: "3rem 6rem",
+    padding: "3rem 3rem",
   },
   workLogo: {
     maxWidth: "100%",
