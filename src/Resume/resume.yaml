@@ -1,5 +1,21 @@
 Work Experience: 
   - position: 
+    - title: Full Stack Developer Co-op
+      location: Remote
+      duration: May 11, 2020 - Aug 28, 2020
+      points:
+        - point: Coordinated a machine learning project with various teams to auto label Project Commodity Codes, which was previously a manual task
+          subpoints: 
+            - point: Worked with the data team to create a Python Flask web service which acted as an access layer to the machine learning model the data team created
+            - point: Collaborated with the infrastructure team to host the python service and the machine learning models onto ec2, which were deployed using ansible
+            - point: Routine meetings with the product team on requirements of the project and how the machine learning model would be applied in the react front end
+            - point: Implemented the react front-end based on product team's mockups and designs.
+            - point: Designed and implemented various Node backend endpoints to access the machine learning model as well as store relevant information into databases, using the Hapi framework
+        - point: Helped fix a lambda microservice written in Golang, which was responsible for syncing vendor data over different regions
+        - point: Maintained open communications and self motivation to make sure remote work term was successful
+    organization: Bonfire Interactive
+    logoImg: bonfireLogo
+  - position: 
     - title: Software Developer
       location: Waterloo, ON
       duration: Sep 9, 2019 - Dec 20, 2019

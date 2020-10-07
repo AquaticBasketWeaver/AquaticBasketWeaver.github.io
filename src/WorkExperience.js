@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { makeStyles, Box, Grid, Typography, Hidden } from "@material-ui/core";
 import { Element } from "react-scroll";
 import Banner from "./Banner";
+import resume from "./Resume/resume.yaml";
+
 import zenreachLogo from "./img/work/Zenreach-logo.png";
 import ctrlVLogo from "./img/work/CtrlV-logo.png";
 import ttcLogo from "./img/work/TTC-logo.png";
-import resume from "./Resume/resume.yaml";
+import bonfireLogo from "./img/work/bonfire-logo.svg";
 
 const yaml = require("js-yaml");
 
@@ -58,6 +60,7 @@ function WorkExperience({ id }) {
     zenreachLogo: zenreachLogo,
     ctrlVLogo: ctrlVLogo,
     ttcLogo: ttcLogo,
+    bonfireLogo: bonfireLogo,
   };
 
   const workSection = (experience) => {

@@ -3,6 +3,7 @@ Future:
     - Move resume stuff into an actual server
 
 Present:
+    - Work experience section does not show subpoints
     - Portrait mode on mobile is hot trash (might actually be fixed now)
     - Add a "More photos" button to the photos section that leads to a new page
     - Update your resume
