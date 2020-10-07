@@ -3,12 +3,13 @@ Future:
     - Move resume stuff into an actual server
 
 Present:
-    - Portrait mode on mobile is hot trash (might actually be fixed now)
+    - When you click the sandwich bar button again, it closes the navbar drop down thing
+    - you need even less padding for the work experiences in mobile view (and maybe add more padding again for desktop view)
     - Add a "More photos" button to the photos section that leads to a new page
-    - Update your resume
     - Fix metadata related stuff
 
 If you have time:
+    - Portrait mode on mobile is hot trash (might actually be fixed now)
     - Fix navbar highlight button behaviour when at top of page (and navbar is transparent)
     - fix the !important in Photography.js
     - improve navbar code
