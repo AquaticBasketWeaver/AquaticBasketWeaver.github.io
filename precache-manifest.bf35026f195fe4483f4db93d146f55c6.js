@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7bf86948ecda04ee1d37e0d5d04f45f3",
+    "revision": "01f29d8b8a5c42936208622c1b008245",
     "url": "/index.html"
   },
   {
-    "revision": "b13175338829ade5c224",
+    "revision": "e2bcdfbf58de0ae5e7c0",
     "url": "/static/css/main.69eda509.chunk.css"
   },
   {
-    "revision": "b84c3d417fc7683170a4",
-    "url": "/static/js/2.a72da0a3.chunk.js"
+    "revision": "be6590ef7ffca8626f4f",
+    "url": "/static/js/2.f21fbe17.chunk.js"
   },
   {
     "revision": "d466ab9648f013dea081956fc7c904f3",
-    "url": "/static/js/2.a72da0a3.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.f21fbe17.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b13175338829ade5c224",
-    "url": "/static/js/main.7812fc7d.chunk.js"
+    "revision": "e2bcdfbf58de0ae5e7c0",
+    "url": "/static/js/main.09cc1f1f.chunk.js"
   },
   {
     "revision": "73635f645c271e35ff15",
@@ -108,6 +108,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Zenreach-logo.b628bc80.png"
   },
   {
+    "revision": "7ef56b30a810e17566a0ccffc7dcfd0f",
+    "url": "/static/media/bonfire-logo.7ef56b30.svg"
+  },
+  {
     "revision": "43b046a8c0b51b8f49f6c2c624ffabae",
     "url": "/static/media/carousel-min.43b046a8.jpg"
   },
@@ -132,7 +136,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/green_forestry.8c0c63f0.jpg"
   },
   {
-    "revision": "7d6d49e66b328aa665ffd9102e772e4c",
-    "url": "/static/media/resume.7d6d49e6.yaml"
+    "revision": "0204e4aceca7b5b6787d8d404a190d6f",
+    "url": "/static/media/resume.0204e4ac.yaml"
   }
 ]);
