@@ -5,7 +5,7 @@ Work Experience:
       duration: May 11, 2020 - Aug 28, 2020
       points:
         - point: Coordinated a machine learning project with various teams to auto label Project Commodity Codes, which was previously a manual task
-          subpoints: 
+          points: 
             - point: Worked with the data team to create a Python Flask web service which acted as an access layer to the machine learning model the data team created
             - point: Collaborated with the infrastructure team to host the python service and the machine learning models onto ec2, which were deployed using ansible
             - point: Routine meetings with the product team on requirements of the project and how the machine learning model would be applied in the react front end
@@ -44,7 +44,7 @@ Work Experience:
       duration: May 7, 2018 – Aug 31, 2018
       points:
         - point: Extensive work on employee rewards program web application using C#, HTML, and JavaScript using Visual Studio 2012
-          subpoints: 
+          points: 
             - point: Handled user input and client-side validation using the jQuery library 
             - point:  Migrated historic data in XML files into a Microsoft SQL Server database using a combination of C# scripts, and SQL queries
         - point: Automated invoice printing based on a specific schedule using Outlook VBA and Adobe Acrobat SDK for Accounts Payable department
@@ -55,7 +55,7 @@ Work Experience:
       duration: May 8, 2017 – Aug 31, 2017
       points:
         - point: Developed a cataloguing web application in C# and HTML using Visual Studio environment
-          subpoints:
+          points:
             - point: Worked with Team Foundation Server, as well as MVC design pattern
         - point: Constructed various queries in Microsoft SQL Server and Access databases for aggregating data to display onto Access and Crystal reports
         - point: Automated various data entry tasks using C# scripts

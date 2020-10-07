@@ -63,14 +63,14 @@ function WorkExperience({ id }) {
     bonfireLogo: bonfireLogo,
   };
 
-  const displayResumePoints = (points) => (
+  const displayResumePoints = ({ points }) => (
     <ul>
-      {points.map(({ point, subpoints }, index) => (
+      {points.map(({ point, points }, index) => (
         <li key={index}>
           <Typography className={classes.orgPoints} variant="body1">
             {point}
           </Typography>
-          {subpoints && displayResumePoints(subpoints)}
+          {points && displayResumePoints({ points })}
         </li>
       ))}
     </ul>
@@ -92,7 +92,7 @@ function WorkExperience({ id }) {
                     {info.duration}
                   </Typography>
                   <hr className={classes.divider}></hr>
-                  {displayResumePoints(info.points)}
+                  {displayResumePoints(info)}
                 </Box>
               ))}
             </Box>
