@@ -63,15 +63,28 @@ function WorkExperience({ id }) {
     bonfireLogo: bonfireLogo,
   };
 
+  const displayResumePoints = (points) => (
+    <ul>
+      {points.map(({ point, subpoints }, index) => (
+        <li key={index}>
+          <Typography className={classes.orgPoints} variant="body1">
+            {point}
+          </Typography>
+          {subpoints && displayResumePoints(subpoints)}
+        </li>
+      ))}
+    </ul>
+  );
+
   const workSection = (experience) => {
     return (
-      <Box className={classes.listContainer}>
+      <Box className={classes.listContainer} key={experience.organization}>
         <Grid container>
           <Grid item sm={12} md={6}>
             <Box className={classes.orgContainer}>
               <Typography variant="h4">{experience.organization}</Typography>
               {experience.position.map((info) => (
-                <Box className={classes.pointsContainer}>
+                <Box className={classes.pointsContainer} key={info.title}>
                   <Typography className={classes.orgInfo} variant="subtitle1">
                     {info.title + " | " + info.location}
                   </Typography>
@@ -79,18 +92,7 @@ function WorkExperience({ id }) {
                     {info.duration}
                   </Typography>
                   <hr className={classes.divider}></hr>
-                  <ul>
-                    {info.points.map(({ point }) => (
-                      <li>
-                        <Typography
-                          className={classes.orgPoints}
-                          variant="body1"
-                        >
-                          {point}
-                        </Typography>
-                      </li>
-                    ))}
-                  </ul>
+                  {displayResumePoints(info.points)}
                 </Box>
               ))}
             </Box>
@@ -100,6 +102,7 @@ function WorkExperience({ id }) {
               <img
                 className={classes.workLogo}
                 src={logos[experience.logoImg]}
+                alt={experience.logoImg}
               />
             </Grid>
           </Hidden>

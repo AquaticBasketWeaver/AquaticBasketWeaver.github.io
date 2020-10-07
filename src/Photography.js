@@ -100,15 +100,16 @@ function Photography({ id }) {
   const generatePhotoGrid = () => {
     return (
       <Grid container spacing={0}>
-        {photoArray.map((photoObj) => (
+        {photoArray.map((photoObj, index) => (
           <Grid
+            key={index}
             className={classes.thumbnailContainer}
             item
             md={4}
             sm={6}
             xs={12}
           >
-            <img className={classes.thumbnail} src={photoObj.thumbnail} />
+            <img className={classes.thumbnail} src={photoObj.thumbnail} alt={""} />
             <Hidden xsDown>
               <div
                 className={classes.tint}
@@ -131,7 +132,7 @@ function Photography({ id }) {
         setModalOpen(false);
       }}
     >
-      <img className={classes.modalImg} src={modalImg} />
+      <img className={classes.modalImg} src={modalImg} alt={""} />
     </Modal>
   );
 

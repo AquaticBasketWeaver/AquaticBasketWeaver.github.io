@@ -89,7 +89,7 @@ function Navbar({ sections }) {
     } else {
       setMobileNavBar(false);
     }
-  }, []);
+  }, [theme.breakpoints.values.sm]);
 
   useEffect(() => {
     const scrollListener = document.addEventListener("scroll", (e) => {
@@ -146,6 +146,7 @@ function Navbar({ sections }) {
         {Object.entries(sections).map(([key, value]) => {
           return (
             <Button
+              key={key}
               className={classes.toolbarButton}
               onClick={() => {
                 smoothScroll(value);
@@ -188,7 +189,11 @@ function Navbar({ sections }) {
 
   return (
     <AppBar
-      className={dynamicNavBar(classes.appBar, classes.appBarScroll) + " " + (openDrawer && classes.appBarNoBoxShadow)}
+      className={
+        dynamicNavBar(classes.appBar, classes.appBarScroll) +
+        " " +
+        (openDrawer && classes.appBarNoBoxShadow)
+      }
       position="static"
     >
       <Drawer
