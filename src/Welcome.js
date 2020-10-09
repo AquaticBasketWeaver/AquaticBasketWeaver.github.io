@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 
 // TODO: remove this when photos get moved onto s3
-import cover from "./img/photos/DSC_0025.jpg";
+import cover from "./img/thumbnails/dock_view-min.jpg";
 
 const useStyles = makeStyles(() => ({
   container: {

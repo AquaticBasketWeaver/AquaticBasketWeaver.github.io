@@ -6,12 +6,12 @@ import Banner from "./Banner";
 // TODO: remove this when you move photos onto s3
 import carousel from "./img/photos/carousel.jpg";
 import closeUpBee from "./img/photos/close_up_bee.jpg";
-import DSC_0006 from "./img/photos/DSC_0006.jpg";
-import DSC_0025 from "./img/photos/DSC_0025.jpg";
-import DSC_0028 from "./img/photos/DSC_0028.jpg";
-import DSC_0035 from "./img/photos/DSC_0035-2.jpg";
-import DSC_0063 from "./img/photos/DSC_0063.jpg";
-import DSC_0078 from "./img/photos/DSC_0078.jpg";
+import dark_dock from "./img/photos/dark_dock.jpg";
+import dock_view from "./img/photos/dock_view.jpg";
+import ferry from "./img/photos/ferry.jpg";
+import hk_at_night from "./img/photos/hk_at_night.jpg";
+import hk_harbor from "./img/photos/hk_harbor.jpg";
+import hk_harbor_with_ferry from "./img/photos/hk_harbor_with_ferry.jpg";
 import greenForestry from "./img/photos/green_forestry.jpg";
 import purpleFlower from "./img/photos/Purple_Flower.jpg";
 import riverwood from "./img/photos/Riverwood.jpg";
@@ -20,12 +20,12 @@ import torontoOnTrees from "./img/photos/Toronto_on_Trees.jpg";
 // TODO: also remove this when you move photos onto s3
 import t_carousel from "./img/thumbnails/carousel-min.jpg";
 import t_closeUpBee from "./img/thumbnails/close_up_bee-min.jpg";
-import t_DSC_0006 from "./img/thumbnails/DSC_0006-min.jpg";
-import t_DSC_0025 from "./img/thumbnails/DSC_0025-min.jpg";
-import t_DSC_0028 from "./img/thumbnails/DSC_0028-min.jpg";
-import t_DSC_0035 from "./img/thumbnails/DSC_0035-2-min.jpg";
-import t_DSC_0063 from "./img/thumbnails/DSC_0063-min.jpg";
-import t_DSC_0078 from "./img/thumbnails/DSC_0078-min.jpg";
+import t_dark_dock from "./img/thumbnails/dark_dock-min.jpg";
+import t_dock_view from "./img/thumbnails/dock_view-min.jpg";
+import t_ferry from "./img/thumbnails/ferry-min.jpg";
+import t_hk_at_night from "./img/thumbnails/hk_at_night-min.jpg";
+import t_hk_harbor from "./img/thumbnails/hk_harbor-min.jpg";
+import t_hk_harbor_with_ferry from "./img/thumbnails/hk_harbor_with_ferry-min.jpg";
 import t_greenForestry from "./img/thumbnails/green_forestry-min.jpg";
 import t_purpleFlower from "./img/thumbnails/Purple_Flower-min.jpg";
 import t_riverwood from "./img/thumbnails/Riverwood-min.jpg";
@@ -80,16 +80,16 @@ function Photography({ id }) {
   const photoArray = [
     createPhotoObj(t_carousel, carousel),
     createPhotoObj(t_closeUpBee, closeUpBee),
-    createPhotoObj(t_DSC_0006, DSC_0006),
-    createPhotoObj(t_DSC_0025, DSC_0025),
-    createPhotoObj(t_DSC_0028, DSC_0028),
-    createPhotoObj(t_DSC_0035, DSC_0035),
-    createPhotoObj(t_DSC_0063, DSC_0063),
+    createPhotoObj(t_dark_dock, dark_dock),
+    createPhotoObj(t_dock_view, dock_view),
+    createPhotoObj(t_ferry, ferry),
+    createPhotoObj(t_hk_at_night, hk_at_night),
+    createPhotoObj(t_hk_harbor, hk_harbor),
     createPhotoObj(t_torontoOnTrees, torontoOnTrees),
     createPhotoObj(t_greenForestry, greenForestry),
     createPhotoObj(t_riverwood, riverwood),
     createPhotoObj(t_purpleFlower, purpleFlower),
-    createPhotoObj(t_DSC_0078, DSC_0078),
+    createPhotoObj(t_hk_harbor_with_ferry, hk_harbor_with_ferry),
   ];
 
   const onThumbnailClick = (image) => {
