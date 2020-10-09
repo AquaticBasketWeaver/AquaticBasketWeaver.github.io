@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "97e22c2935b5803ca0569038907bb91e",
+    "revision": "60487aef327e3acb3925a0d1440702cb",
     "url": "/index.html"
   },
   {
-    "revision": "e0964802ae7059a52ee2",
+    "revision": "fe1f9dc4a9d9730fee6a",
     "url": "/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.f21fbe17.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e0964802ae7059a52ee2",
-    "url": "/static/js/main.180cc8b5.chunk.js"
+    "revision": "fe1f9dc4a9d9730fee6a",
+    "url": "/static/js/main.f127de3f.chunk.js"
   },
   {
     "revision": "73635f645c271e35ff15",
@@ -26,54 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1409980ea657d0da94c5c1420f3cc687",
     "url": "/static/media/CtrlV-logo.1409980e.png"
-  },
-  {
-    "revision": "f3344a2464cbd8d5b1bc4326fa10d4d6",
-    "url": "/static/media/DSC_0006-min.f3344a24.jpg"
-  },
-  {
-    "revision": "c75bf481df9a46d19d534571cc27d7c9",
-    "url": "/static/media/DSC_0006.c75bf481.jpg"
-  },
-  {
-    "revision": "1c326a98f1f168366385ea27b04941e3",
-    "url": "/static/media/DSC_0025-min.1c326a98.jpg"
-  },
-  {
-    "revision": "7c37f1ec4955cd1e94002d28d02311f5",
-    "url": "/static/media/DSC_0025.7c37f1ec.jpg"
-  },
-  {
-    "revision": "a2250fce1b06016aa7d3e964560812ee",
-    "url": "/static/media/DSC_0028-min.a2250fce.jpg"
-  },
-  {
-    "revision": "d28e919f1cb856d505b82b20ba1e775b",
-    "url": "/static/media/DSC_0028.d28e919f.jpg"
-  },
-  {
-    "revision": "1252ed89b6ebf9c8bb80a7273ca00b65",
-    "url": "/static/media/DSC_0035-2-min.1252ed89.jpg"
-  },
-  {
-    "revision": "c25c47ec234bca7e6a121b0c841a864c",
-    "url": "/static/media/DSC_0035-2.c25c47ec.jpg"
-  },
-  {
-    "revision": "1e9db561f8962b7d5d3500d76ca47e9e",
-    "url": "/static/media/DSC_0063-min.1e9db561.jpg"
-  },
-  {
-    "revision": "6855dae2c242ff8091af5b73edae1120",
-    "url": "/static/media/DSC_0063.6855dae2.jpg"
-  },
-  {
-    "revision": "8e810f03ec29be870d6f8423e6918605",
-    "url": "/static/media/DSC_0078-min.8e810f03.jpg"
-  },
-  {
-    "revision": "19d426007adf1df0f8ec751e3c006794",
-    "url": "/static/media/DSC_0078.19d42600.jpg"
   },
   {
     "revision": "2005a32ea096eb301d216e7a367ffe6d",
@@ -128,12 +80,60 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/close_up_bee.28900771.jpg"
   },
   {
+    "revision": "f3344a2464cbd8d5b1bc4326fa10d4d6",
+    "url": "/static/media/dark_dock-min.f3344a24.jpg"
+  },
+  {
+    "revision": "c75bf481df9a46d19d534571cc27d7c9",
+    "url": "/static/media/dark_dock.c75bf481.jpg"
+  },
+  {
+    "revision": "1c326a98f1f168366385ea27b04941e3",
+    "url": "/static/media/dock_view-min.1c326a98.jpg"
+  },
+  {
+    "revision": "7c37f1ec4955cd1e94002d28d02311f5",
+    "url": "/static/media/dock_view.7c37f1ec.jpg"
+  },
+  {
+    "revision": "a2250fce1b06016aa7d3e964560812ee",
+    "url": "/static/media/ferry-min.a2250fce.jpg"
+  },
+  {
+    "revision": "d28e919f1cb856d505b82b20ba1e775b",
+    "url": "/static/media/ferry.d28e919f.jpg"
+  },
+  {
     "revision": "fa56a45f1f8d7432a106333343a3b08b",
     "url": "/static/media/green_forestry-min.fa56a45f.jpg"
   },
   {
     "revision": "8c0c63f0cf72a831eba7f25defd69777",
     "url": "/static/media/green_forestry.8c0c63f0.jpg"
+  },
+  {
+    "revision": "1252ed89b6ebf9c8bb80a7273ca00b65",
+    "url": "/static/media/hk_at_night-min.1252ed89.jpg"
+  },
+  {
+    "revision": "c25c47ec234bca7e6a121b0c841a864c",
+    "url": "/static/media/hk_at_night.c25c47ec.jpg"
+  },
+  {
+    "revision": "8e810f03ec29be870d6f8423e6918605",
+    "url": "/static/media/hk_harbor-min.8e810f03.jpg"
+  },
+  {
+    "revision": "19d426007adf1df0f8ec751e3c006794",
+    "url": "/static/media/hk_harbor.19d42600.jpg"
+  },
+  {
+    "revision": "1e9db561f8962b7d5d3500d76ca47e9e",
+    "url": "/static/media/hk_harbor_with_ferry-min.1e9db561.jpg"
+  },
+  {
+    "revision": "6855dae2c242ff8091af5b73edae1120",
+    "url": "/static/media/hk_harbor_with_ferry.6855dae2.jpg"
   },
   {
     "revision": "02c26157a6d16159dbd1ece394bad764",
