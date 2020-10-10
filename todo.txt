@@ -1,9 +1,7 @@
 Future:
-    - Move img folder onto an actual server
-    - Move resume stuff into an actual server
+    - Start pulling imgs from s3
 
 Present:
-    - Fix your photo naming
     - When you click the sandwich bar button again, it closes the navbar drop down thing
     - you need even less padding for the work experiences in mobile view (and maybe add more padding again for desktop view)
     - Add a "More photos" button to the photos section that leads to a new page
@@ -14,3 +12,4 @@ If you have time:
     - Fix navbar highlight button behaviour when at top of page (and navbar is transparent)
     - fix the !important in Photography.js
     - improve navbar code
+    - possibly compress the images in the img folder a bit
