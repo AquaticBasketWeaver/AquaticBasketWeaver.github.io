@@ -54,7 +54,7 @@ function ContactMe({ id }) {
               component="a"
               href="mailto:name@email.com"
             >
-              lamivan1668@gmail.com
+              Lamivan1668@gmail.com
             </Typography>
           </Box>
         </Banner>
