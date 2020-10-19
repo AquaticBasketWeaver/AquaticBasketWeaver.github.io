@@ -52,7 +52,7 @@ function ContactMe({ id }) {
               className={classes.email}
               variant="body1"
               component="a"
-              href="mailto:name@email.com"
+              href="mailto:Lamivan1668@gmail.com"
             >
               Lamivan1668@gmail.com
             </Typography>
