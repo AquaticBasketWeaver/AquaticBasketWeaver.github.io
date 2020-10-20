@@ -1,23 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.69eda509.chunk.css",
-    "main.js": "/static/js/main.86e8b2f7.chunk.js",
-    "main.js.map": "/static/js/main.86e8b2f7.chunk.js.map",
+    "main.js": "/static/js/main.6af24fbc.chunk.js",
+    "main.js.map": "/static/js/main.6af24fbc.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
     "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
-    "static/js/2.b1ee51de.chunk.js": "/static/js/2.b1ee51de.chunk.js",
-    "static/js/2.b1ee51de.chunk.js.map": "/static/js/2.b1ee51de.chunk.js.map",
+    "static/js/2.4c763590.chunk.js": "/static/js/2.4c763590.chunk.js",
+    "static/js/2.4c763590.chunk.js.map": "/static/js/2.4c763590.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9a17a06db6cd888f5203e1f6f18144b8.js": "/precache-manifest.9a17a06db6cd888f5203e1f6f18144b8.js",
+    "precache-manifest.c44eb7be5d412e0b56da164c27519897.js": "/precache-manifest.c44eb7be5d412e0b56da164c27519897.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.b1ee51de.chunk.js.LICENSE.txt": "/static/js/2.b1ee51de.chunk.js.LICENSE.txt",
+    "static/js/2.4c763590.chunk.js.LICENSE.txt": "/static/js/2.4c763590.chunk.js.LICENSE.txt",
     "static/media/CtrlV-logo.png": "/static/media/CtrlV-logo.1409980e.png",
     "static/media/Purple_Flower-min.jpg": "/static/media/Purple_Flower-min.2005a32e.jpg",
     "static/media/Riverwood-min.jpg": "/static/media/Riverwood-min.ce5c14aa.jpg",
     "static/media/TTC-logo.png": "/static/media/TTC-logo.e84c427c.png",
     "static/media/Toronto_on_Trees-min.jpg": "/static/media/Toronto_on_Trees-min.f1cca66a.jpg",
-    "static/media/Zenreach-logo.png": "/static/media/Zenreach-logo.b628bc80.png",
     "static/media/bonfire-logo.svg": "/static/media/bonfire-logo.7ef56b30.svg",
     "static/media/carousel-min.jpg": "/static/media/carousel-min.43b046a8.jpg",
     "static/media/close_up_bee-min.jpg": "/static/media/close_up_bee-min.dcd6c80f.jpg",
@@ -29,12 +28,12 @@
     "static/media/hk_harbor-min.jpg": "/static/media/hk_harbor-min.8e810f03.jpg",
     "static/media/hk_harbor_with_ferry-min.jpg": "/static/media/hk_harbor_with_ferry-min.1e9db561.jpg",
     "static/media/resume.yaml": "/static/media/resume.02c26157.yaml",
-    "static/media/zenreach.svg": "/static/media/zenreach.04c55988.svg"
+    "static/media/zenreach.svg": "/static/media/zenreach.cd29abcf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.83c3e0c4.js",
-    "static/js/2.b1ee51de.chunk.js",
+    "static/js/2.4c763590.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.86e8b2f7.chunk.js"
+    "static/js/main.6af24fbc.chunk.js"
   ]
 }

@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c31e1eac50de8cc5969fdf9a005d8ebd",
+    "revision": "9b40ddfabac23a64657ddf2011039220",
     "url": "/index.html"
   },
   {
-    "revision": "bd84e2e0aeb0ffe25c25",
+    "revision": "27ea8083e14719c106f3",
     "url": "/static/css/main.69eda509.chunk.css"
   },
   {
-    "revision": "5452c1595c7ed8d82a62",
-    "url": "/static/js/2.b1ee51de.chunk.js"
+    "revision": "23c6bbf3580e10a081a4",
+    "url": "/static/js/2.4c763590.chunk.js"
   },
   {
     "revision": "d466ab9648f013dea081956fc7c904f3",
-    "url": "/static/js/2.b1ee51de.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.4c763590.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bd84e2e0aeb0ffe25c25",
-    "url": "/static/js/main.86e8b2f7.chunk.js"
+    "revision": "27ea8083e14719c106f3",
+    "url": "/static/js/main.6af24fbc.chunk.js"
   },
   {
     "revision": "73635f645c271e35ff15",
@@ -42,10 +42,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f1cca66a87cb7b6fb4c4971d161f8ef0",
     "url": "/static/media/Toronto_on_Trees-min.f1cca66a.jpg"
-  },
-  {
-    "revision": "b628bc80cb09049dfa97451f71973366",
-    "url": "/static/media/Zenreach-logo.b628bc80.png"
   },
   {
     "revision": "7ef56b30a810e17566a0ccffc7dcfd0f",
@@ -92,7 +88,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/resume.02c26157.yaml"
   },
   {
-    "revision": "04c5598892ad44dc98fe4790a83585a0",
-    "url": "/static/media/zenreach.04c55988.svg"
+    "revision": "cd29abcf3c33880200d7b9a6d627caae",
+    "url": "/static/media/zenreach.cd29abcf.svg"
   }
 ]);
