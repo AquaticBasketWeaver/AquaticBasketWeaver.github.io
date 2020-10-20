@@ -4,7 +4,7 @@ import { Box, Grid, makeStyles, Modal, Hidden } from "@material-ui/core";
 import Banner from "./Banner";
 import axios from "axios";
 
-const photoApiUrl = "http://ec2-18-216-182-107.us-east-2.compute.amazonaws.com/photos/photography"
+const photoApiUrl = "https://api.aquaticbasket.com/photos/photography"
 
 const useStyles = makeStyles(() => ({
   modalImg: {
