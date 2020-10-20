@@ -5,17 +5,27 @@ import Banner from "./Banner";
 import resume from "./Resume/resume.yaml";
 
 import zenreachLogo from "./img/work/Zenreach-logo.png";
+import zenreachLogo2 from "./img/work/zenreach.svg";
 import ctrlVLogo from "./img/work/CtrlV-logo.png";
 import ttcLogo from "./img/work/TTC-logo.png";
 import bonfireLogo from "./img/work/bonfire-logo.svg";
 
 const yaml = require("js-yaml");
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   listContainer: {
-    padding: "3rem 3rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "3rem 1rem",
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: "3rem 3rem",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "3rem 6rem",
+    },
   },
   workLogo: {
+    width: "80%",
     maxWidth: "100%",
     maxHeight: "100%",
     margin: "auto",
@@ -53,9 +63,6 @@ function WorkExperience({ id }) {
   const classes = useStyles();
   const [parsedResume, setParsedResume] = useState({});
 
-  // TODO: Once you get server stuff set up, you're going to want logos stored on S3
-  // or something, and you should be getting them based on what you have in resume.yaml
-  // (e.g. logoImg should be changed in resume.yaml)
   const logos = {
     zenreachLogo: zenreachLogo,
     ctrlVLogo: ctrlVLogo,

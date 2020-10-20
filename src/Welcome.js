@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 
-// TODO: remove this when photos get moved onto s3
-import cover from "./img/thumbnails/dock_view-min.jpg";
+import cover from "./img/photos/dock_view-min.jpg";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -10,8 +9,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-
-    background: `linear-gradient(to bottom,rgba(38,149,235,.3) 0,rgba(38,149,235,.3) 100%), url(${cover})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "scroll",
@@ -41,29 +38,42 @@ const useStyles = makeStyles(() => ({
   },
   img: {
     position: "absolute",
-    top: 0,
-    left: 0,
+    top: "0",
+    left: "0",
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    zIndex: -1,
+    zIndex: "-1",
     overflow: "hidden",
+  },
+  tint: {
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+    zIndex: "-1",
+    backgroundColor: "rgba(38,149,235,.3)",
   },
 }));
 
-function Welcome({ id }) {
+function Welcome() {
   const classes = useStyles();
   return (
-    <Box className={classes.container}>
-      <Typography className={classes.title} variant="h3">
-        WELCOME
-      </Typography>
-      <hr className={classes.divider} />
-      <Typography className={classes.caption} variant="h6">
-        Hi, my name is Ivan Lam and here you'll be able to see some of the
-        things I did, as well as the hobbies that I'm interested in
-      </Typography>
-    </Box>
+    <>
+      <Box>
+        <img className={classes.img} src={cover} alt={""} />
+        <div className={classes.tint}></div>
+      </Box>
+      <Box className={classes.container}>
+        <Typography className={classes.title} variant="h3">
+          WELCOME
+        </Typography>
+        <hr className={classes.divider} />
+        <Typography className={classes.caption} variant="h6">
+          Hi, my name is Ivan Lam and here you'll be able to see some of the
+          things I did, as well as the hobbies that I'm interested in
+        </Typography>
+      </Box>
+    </>
   );
 }
 

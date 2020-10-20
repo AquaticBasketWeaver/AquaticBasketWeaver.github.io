@@ -3,18 +3,18 @@ import { Element } from "react-scroll";
 import { Box, Grid, makeStyles, Modal, Hidden } from "@material-ui/core";
 import Banner from "./Banner";
 
-import carousel from "./img/thumbnails/carousel-min.jpg";
-import closeUpBee from "./img/thumbnails/close_up_bee-min.jpg";
-import dark_dock from "./img/thumbnails/dark_dock-min.jpg";
-import dock_view from "./img/thumbnails/dock_view-min.jpg";
-import ferry from "./img/thumbnails/ferry-min.jpg";
-import hk_at_night from "./img/thumbnails/hk_at_night-min.jpg";
-import hk_harbor from "./img/thumbnails/hk_harbor-min.jpg";
-import hk_harbor_with_ferry from "./img/thumbnails/hk_harbor_with_ferry-min.jpg";
-import greenForestry from "./img/thumbnails/green_forestry-min.jpg";
-import purpleFlower from "./img/thumbnails/Purple_Flower-min.jpg";
-import riverwood from "./img/thumbnails/Riverwood-min.jpg";
-import torontoOnTrees from "./img/thumbnails/Toronto_on_Trees-min.jpg";
+import carousel from "./img/photos/carousel-min.jpg";
+import closeUpBee from "./img/photos/close_up_bee-min.jpg";
+import dark_dock from "./img/photos/dark_dock-min.jpg";
+import dock_view from "./img/photos/dock_view-min.jpg";
+import ferry from "./img/photos/ferry-min.jpg";
+import hk_at_night from "./img/photos/hk_at_night-min.jpg";
+import hk_harbor from "./img/photos/hk_harbor-min.jpg";
+import hk_harbor_with_ferry from "./img/photos/hk_harbor_with_ferry-min.jpg";
+import greenForestry from "./img/photos/green_forestry-min.jpg";
+import purpleFlower from "./img/photos/Purple_Flower-min.jpg";
+import riverwood from "./img/photos/Riverwood-min.jpg";
+import torontoOnTrees from "./img/photos/Toronto_on_Trees-min.jpg";
 
 const useStyles = makeStyles(() => ({
   modalImg: {
@@ -60,7 +60,6 @@ function Photography({ id }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImg, setModalImg] = useState();
 
-  // TODO: replace this when you move your photos onto s3 or something
   const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
   const photoArray = [
     createPhotoObj(carousel, carousel),

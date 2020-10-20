@@ -213,7 +213,7 @@ function Navbar({ sections }) {
               edge="start"
               className={dynamicNavBar(null, classes.menuButton)}
               onClick={() => {
-                setOpenDrawer(true);
+                setOpenDrawer(!openDrawer);
               }}
               color="inherit"
               aria-label="menu"
