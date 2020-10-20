@@ -5,16 +5,24 @@ import About from "./About";
 import WorkExperience from "./WorkExperience";
 import Photography from "./Photography";
 import ContactMe from "./ContactMe";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+  app: {
+    overflowX: "hidden",
+  }
+}));
 
 function App() {
+  const classes = useStyles();
   const sections = {
     about: "About",
     work: "Work",
     photography: "Photography",
     contact: "Contact",
-  }
+  };
   return (
-    <div className="App">
+    <div className={classes.app}>
       <Navbar sections={sections} />
       <Welcome />
       <About id={sections.about} />
