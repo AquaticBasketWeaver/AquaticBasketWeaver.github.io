@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.69eda509.chunk.css",
-    "main.js": "/static/js/main.e384b964.chunk.js",
-    "main.js.map": "/static/js/main.e384b964.chunk.js.map",
+    "main.js": "/static/js/main.c43adc70.chunk.js",
+    "main.js.map": "/static/js/main.c43adc70.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
     "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
-    "static/js/2.2d8e0f1c.chunk.js": "/static/js/2.2d8e0f1c.chunk.js",
-    "static/js/2.2d8e0f1c.chunk.js.map": "/static/js/2.2d8e0f1c.chunk.js.map",
+    "static/js/2.a92c0062.chunk.js": "/static/js/2.a92c0062.chunk.js",
+    "static/js/2.a92c0062.chunk.js.map": "/static/js/2.a92c0062.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a939d6171822dcc97d76cf482051bb43.js": "/precache-manifest.a939d6171822dcc97d76cf482051bb43.js",
+    "precache-manifest.bedc58a82a46ab5cc37130c7e6bd1d06.js": "/precache-manifest.bedc58a82a46ab5cc37130c7e6bd1d06.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.2d8e0f1c.chunk.js.LICENSE.txt": "/static/js/2.2d8e0f1c.chunk.js.LICENSE.txt",
+    "static/js/2.a92c0062.chunk.js.LICENSE.txt": "/static/js/2.a92c0062.chunk.js.LICENSE.txt",
     "static/media/CtrlV-logo.png": "/static/media/CtrlV-logo.1409980e.png",
     "static/media/Purple_Flower-min.jpg": "/static/media/Purple_Flower-min.2005a32e.jpg",
     "static/media/Riverwood-min.jpg": "/static/media/Riverwood-min.ce5c14aa.jpg",
@@ -28,12 +28,13 @@
     "static/media/hk_at_night-min.jpg": "/static/media/hk_at_night-min.1252ed89.jpg",
     "static/media/hk_harbor-min.jpg": "/static/media/hk_harbor-min.8e810f03.jpg",
     "static/media/hk_harbor_with_ferry-min.jpg": "/static/media/hk_harbor_with_ferry-min.1e9db561.jpg",
-    "static/media/resume.yaml": "/static/media/resume.02c26157.yaml"
+    "static/media/resume.yaml": "/static/media/resume.02c26157.yaml",
+    "static/media/zenreach.svg": "/static/media/zenreach.04c55988.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.83c3e0c4.js",
-    "static/js/2.2d8e0f1c.chunk.js",
+    "static/js/2.a92c0062.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.e384b964.chunk.js"
+    "static/js/main.c43adc70.chunk.js"
   ]
 }
