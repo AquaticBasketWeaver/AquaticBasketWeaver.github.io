@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Element } from "react-scroll";
-import { Box, Grid, makeStyles, Modal, Hidden } from "@material-ui/core";
+import {
+  Box,
+  Grid,
+  makeStyles,
+  Modal,
+  Hidden,
+} from "@material-ui/core";
+import { PhotoLibraryOutlined } from "@material-ui/icons";
 import Banner from "./Banner";
 
 import carousel from "./img/photos/carousel-min.jpg";
@@ -9,7 +16,6 @@ import dark_dock from "./img/photos/dark_dock-min.jpg";
 import dock_view from "./img/photos/dock_view-min.jpg";
 import ferry from "./img/photos/ferry-min.jpg";
 import hk_at_night from "./img/photos/hk_at_night-min.jpg";
-import hk_harbor from "./img/photos/hk_harbor-min.jpg";
 import hk_harbor_with_ferry from "./img/photos/hk_harbor_with_ferry-min.jpg";
 import greenForestry from "./img/photos/green_forestry-min.jpg";
 import purpleFlower from "./img/photos/Purple_Flower-min.jpg";
@@ -53,6 +59,19 @@ const useStyles = makeStyles(() => ({
       backgroundColor: "rgba(38,149,235,.3)",
     },
   },
+  moreButton: {
+    top: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    backgroundColor: "#2695eb",
+  },
+  galleryIcon: {
+    height: "3em",
+    width: "3em",
+    fill: "white",
+  },
 }));
 
 function Photography({ id }) {
@@ -68,7 +87,6 @@ function Photography({ id }) {
     createPhotoObj(dock_view, dock_view),
     createPhotoObj(ferry, ferry),
     createPhotoObj(hk_at_night, hk_at_night),
-    createPhotoObj(hk_harbor, hk_harbor),
     createPhotoObj(torontoOnTrees, torontoOnTrees),
     createPhotoObj(greenForestry, greenForestry),
     createPhotoObj(riverwood, riverwood),
@@ -79,6 +97,26 @@ function Photography({ id }) {
   const onThumbnailClick = (image) => {
     setModalImg(image);
     setModalOpen(true);
+  };
+
+  const generateGalleryButton = () => {
+    return (
+      <Grid
+        key={"More"}
+        className={classes.thumbnail}
+        item
+        md={4}
+        sm={6}
+        xs={12}
+      >
+        <div
+          className={`${classes.tint} ${classes.moreButton}`}
+          onClick={() => {}}
+        >
+          <PhotoLibraryOutlined className={classes.galleryIcon}/>
+        </div>
+      </Grid>
+    );
   };
 
   const generatePhotoGrid = () => {
@@ -93,7 +131,11 @@ function Photography({ id }) {
             sm={6}
             xs={12}
           >
-            <img className={classes.thumbnail} src={photoObj.thumbnail} alt={""} />
+            <img
+              className={classes.thumbnail}
+              src={photoObj.thumbnail}
+              alt={""}
+            />
             <Hidden xsDown>
               <div
                 className={classes.tint}
@@ -102,6 +144,7 @@ function Photography({ id }) {
             </Hidden>
           </Grid>
         ))}
+        {generateGalleryButton()}
       </Grid>
     );
   };
@@ -125,6 +168,7 @@ function Photography({ id }) {
       <Box>
         <Banner
           title={"Photography"}
+          caption={""}
           style={{
             container: {
               backgroundColor: "#1e7ad6",
