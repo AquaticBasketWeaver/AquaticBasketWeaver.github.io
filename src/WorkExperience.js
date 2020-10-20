@@ -4,8 +4,7 @@ import { Element } from "react-scroll";
 import Banner from "./Banner";
 import resume from "./Resume/resume.yaml";
 
-import zenreachLogo from "./img/work/Zenreach-logo.png";
-import zenreachLogo2 from "./img/work/zenreach.svg";
+import zenreachLogo from "./img/work/zenreach.svg";
 import ctrlVLogo from "./img/work/CtrlV-logo.png";
 import ttcLogo from "./img/work/TTC-logo.png";
 import bonfireLogo from "./img/work/bonfire-logo.svg";
