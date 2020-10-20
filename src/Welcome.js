@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
     backgroundAttachment: "scroll",
     backgroundSize: "cover",
     height: "100vh",
+    position: "relative",
   },
   divider: {
     width: "100%",
@@ -59,10 +60,6 @@ function Welcome() {
   const classes = useStyles();
   return (
     <>
-      <Box>
-        <img className={classes.img} src={cover} alt={""} />
-        <div className={classes.tint}></div>
-      </Box>
       <Box className={classes.container}>
         <Typography className={classes.title} variant="h3">
           WELCOME
@@ -72,6 +69,8 @@ function Welcome() {
           Hi, my name is Ivan Lam and here you'll be able to see some of the
           things I did, as well as the hobbies that I'm interested in
         </Typography>
+        <img className={classes.img} src={cover} alt={""} />
+        <div className={classes.tint}></div>
       </Box>
     </>
   );
