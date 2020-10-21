@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles, Box, Grid, Typography, Hidden } from "@material-ui/core";
 import { Element } from "react-scroll";
-import Banner from "./Banner";
-import resume from "./Resume/resume.yaml";
+import Banner from "../../components/Banner";
+import resume from "../../Resume/resume.yaml";
 
-import zenreachLogo from "./img/work/zenreach.svg";
-import ctrlVLogo from "./img/work/CtrlV-logo.png";
-import ttcLogo from "./img/work/TTC-logo.png";
-import bonfireLogo from "./img/work/bonfire-logo.svg";
+import zenreachLogo from "../../img/work/zenreach.svg";
+import ctrlVLogo from "../../img/work/CtrlV-logo.png";
+import ttcLogo from "../../img/work/TTC-logo.png";
+import bonfireLogo from "../../img/work/bonfire-logo.svg";
 
 const yaml = require("js-yaml");
 

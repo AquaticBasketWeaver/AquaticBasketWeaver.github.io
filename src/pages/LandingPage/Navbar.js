@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { scroller, animateScroll } from "react-scroll";
+import { useHistory } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -23,7 +24,7 @@ const useStyles = makeStyles(() => ({
   rightButtonGroup: {
     display: "flex",
     width: "100%",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
   toolbarContainer: {
     display: "flex",
@@ -77,48 +78,59 @@ const useStyles = makeStyles(() => ({
 function Navbar({ sections }) {
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory();
+  const isMountedRef = useRef(null); // for memory leak prevention purposes
 
   const [scrollState, setScrollState] = useState("top");
   const [mobileNavBar, setMobileNavBar] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  // Only runs once and determines the initial window size
-  useEffect(() => {
-    if (window.innerWidth < theme.breakpoints.values.sm) {
-      setMobileNavBar(true);
-    } else {
-      setMobileNavBar(false);
-    }
-  }, [theme.breakpoints.values.sm]);
-
-  useEffect(() => {
-    const scrollListener = document.addEventListener("scroll", (e) => {
-      const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled >= 120) {
-        if (scrollState !== "") {
-          setScrollState("");
-        }
-      } else {
-        if (scrollState !== "top") {
-          setScrollState("top");
-        }
-      }
-    });
-
-    const mobileSizeListener = window.addEventListener("resize", (e) => {
+  const pickNavBar = useCallback(() => {
+    if (isMountedRef.current) {
       if (window.innerWidth < theme.breakpoints.values.sm) {
         setMobileNavBar(true);
       } else {
         setMobileNavBar(false);
         setOpenDrawer(false);
       }
+    }
+  }, [theme.breakpoints.values.sm]);
+
+  // Only runs once and determines the initial window size
+  useEffect(() => {
+    isMountedRef.current = true;
+    pickNavBar();
+    return () => (isMountedRef.current = false);
+  }, [pickNavBar]);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+
+    const scrollListener = document.addEventListener("scroll", (e) => {
+      if (isMountedRef.current) {
+        const scrolled = document.scrollingElement.scrollTop;
+        if (scrolled >= 120) {
+          if (scrollState !== "") {
+            setScrollState("");
+          }
+        } else {
+          if (scrollState !== "top") {
+            setScrollState("top");
+          }
+        }
+      }
+    });
+
+    const mobileSizeListener = window.addEventListener("resize", (e) => {
+      pickNavBar();
     });
 
     return () => {
+      isMountedRef.current = false;
       document.removeEventListener("scroll", scrollListener);
       document.removeEventListener("resize", mobileSizeListener);
     };
-  }, [scrollState, mobileNavBar, theme.breakpoints.values.sm]);
+  }, [scrollState, mobileNavBar, pickNavBar]);
 
   const smoothScroll = (anchor) => {
     if (anchor) {
@@ -239,6 +251,22 @@ function Navbar({ sections }) {
             </Typography>
           </Button>
           <Hidden only={"xs"}>{createNavBar()}</Hidden>
+          <Button
+            className={classes.toolbarButton}
+            onClick={() => {
+              history.push("/content");
+            }}
+          >
+            <Typography
+              className={dynamicNavBar(
+                classes.navButtonText,
+                classes.navButtonTextScroll
+              )}
+              variant="h6"
+            >
+              Content
+            </Typography>
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
