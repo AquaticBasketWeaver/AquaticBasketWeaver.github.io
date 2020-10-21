@@ -1,28 +1,14 @@
 import React, { useState } from "react";
 import { Element } from "react-scroll";
-import {
-  Box,
-  makeStyles,
-  Modal,
-  Typography,
-} from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { PhotoLibraryOutlined } from "@material-ui/icons";
 import Banner from "../../components/Banner";
 import PhotoGrid from "../../components/PhotoGrid";
-import { createPreviewPhotoArray } from "../../util/photosHelper";
+import PhotoModal from "../../components/PhotoModal";
+import { createWelcomePhotoArray } from "../../util/photosHelper";
 
 const useStyles = makeStyles(() => ({
-  modalImg: {
-    maxHeight: "90%",
-    maxWidth: "90%",
-  },
-  modalContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: "1500 !important",
-  },
   card: {
     width: "95%",
     maxWidth: "85em",
@@ -66,7 +52,7 @@ function Photography({ id }) {
   const classes = useStyles();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImg, setModalImg] = useState();
-  const photoArray = createPreviewPhotoArray();
+  const photoArray = createWelcomePhotoArray();
 
   const onThumbnailClick = (image) => {
     setModalImg(image);
@@ -84,20 +70,6 @@ function Photography({ id }) {
     );
   };
 
-  // TODO: add descriptions and such to your photos
-  // will probably have to add something to photoObj
-  const generateModal = () => (
-    <Modal
-      className={classes.modalContainer}
-      open={modalOpen}
-      onClose={() => {
-        setModalOpen(false);
-      }}
-    >
-      <img className={classes.modalImg} src={modalImg} alt={""} />
-    </Modal>
-  );
-
   return (
     <Element name={id}>
       <Box>
@@ -113,7 +85,13 @@ function Photography({ id }) {
         <PhotoGrid photoArray={photoArray} onThumbnailClick={onThumbnailClick}>
           {generateGalleryButton()}
         </PhotoGrid>
-        {generateModal()}
+        <PhotoModal
+          modalImg={modalImg}
+          modalOpen={modalOpen}
+          onClose={() => {
+            setModalOpen(false);
+          }}
+        />
       </Box>
     </Element>
   );

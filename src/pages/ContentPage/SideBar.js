@@ -34,11 +34,15 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
     justifyContent: "center",
   },
+  selected: {
+    background: "rgb(92, 123, 171, 0.2)",
+  }
 }));
 
-function SideBar({ sections }) {
+function SideBar({ sections, selectedContent, setSelectedContent }) {
   const classes = useStyles();
   const history = useHistory();
+
   return (
     <Drawer
       className={classes.drawer}
@@ -50,7 +54,9 @@ function SideBar({ sections }) {
     >
       <List className={classes.list}>
         {Object.entries(sections).map(([key, value]) => (
-          <ListItem button key={key}>
+          <ListItem className={(selectedContent === value) ? classes.selected : ""} button key={key} onClick={() => {
+            setSelectedContent(value);
+          }}>
             <ListItemText className={classes.listItem} primary={value} />
           </ListItem>
         ))}

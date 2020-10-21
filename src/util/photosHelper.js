@@ -10,8 +10,12 @@ import purpleFlower from "../img/photos/Purple_Flower-min.jpg";
 import riverwood from "../img/photos/Riverwood-min.jpg";
 import torontoOnTrees from "../img/photos/Toronto_on_Trees-min.jpg";
 
-export const createPreviewPhotoArray = () => {
-  const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
+// You might want to replace this photo with a better one
+import hk_harbor from "../img/photos/hk_harbor-min.jpg"
+
+const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
+
+export const createWelcomePhotoArray = () => {
   const photoArray = [
     createPhotoObj(carousel, carousel),
     createPhotoObj(closeUpBee, closeUpBee),
@@ -27,3 +31,24 @@ export const createPreviewPhotoArray = () => {
   ];
   return photoArray;
 };
+
+// This may be temporary for now. We may want to pull photos from 
+// s3 instead of just having the photos in the web page directly
+export const createGalleryPhotoArray = () => {
+  const photoArray = [
+    createPhotoObj(carousel, carousel),
+    createPhotoObj(closeUpBee, closeUpBee),
+    createPhotoObj(dark_dock, dark_dock),
+    // You might want to replace this photo with a better one
+    createPhotoObj(hk_harbor, hk_harbor),
+    createPhotoObj(dock_view, dock_view),
+    createPhotoObj(ferry, ferry),
+    createPhotoObj(hk_at_night, hk_at_night),
+    createPhotoObj(torontoOnTrees, torontoOnTrees),
+    createPhotoObj(greenForestry, greenForestry),
+    createPhotoObj(riverwood, riverwood),
+    createPhotoObj(purpleFlower, purpleFlower),
+    createPhotoObj(hk_harbor_with_ferry, hk_harbor_with_ferry),
+  ]
+  return photoArray;
+}
