@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
   },
   selected: {
     background: "rgb(92, 123, 171, 0.2)",
-  }
+  },
 }));
 
 function SideBar({ sections, selectedContent, setSelectedContent }) {
@@ -54,9 +54,14 @@ function SideBar({ sections, selectedContent, setSelectedContent }) {
     >
       <List className={classes.list}>
         {Object.entries(sections).map(([key, value]) => (
-          <ListItem className={(selectedContent === value) ? classes.selected : ""} button key={key} onClick={() => {
-            setSelectedContent(value);
-          }}>
+          <ListItem
+            className={selectedContent === value ? classes.selected : ""}
+            button
+            key={key}
+            onClick={() => {
+              setSelectedContent(value);
+            }}
+          >
             <ListItemText className={classes.listItem} primary={value} />
           </ListItem>
         ))}
