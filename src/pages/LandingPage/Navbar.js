@@ -73,6 +73,9 @@ const useStyles = makeStyles(() => ({
     paddingTop: `${navBarHeight}px`,
     paddingLeft: `${45}px`,
   },
+  spacer: {
+    width: "50%",
+  },
 }));
 
 function Navbar({ sections }) {
@@ -251,6 +254,13 @@ function Navbar({ sections }) {
             </Typography>
           </Button>
           <Hidden only={"xs"}>{createNavBar()}</Hidden>
+
+          {/* Temporary spacing solution */}
+          <Hidden smUp>
+            <div className={classes.spacer}></div>
+          </Hidden>
+
+
           <Button
             className={classes.toolbarButton}
             onClick={() => {
