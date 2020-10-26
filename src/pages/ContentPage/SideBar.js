@@ -151,7 +151,9 @@ function SideBar({ sections, selectedContent, setSelectedContent }) {
             >
               <Menu />
             </IconButton>
-            <Typography className={classes.mobileNavBarText}>{selectedContent}</Typography>
+            <Typography className={classes.mobileNavBarText}>
+              {selectedContent}
+            </Typography>
           </Toolbar>
         </AppBar>
       </Hidden>

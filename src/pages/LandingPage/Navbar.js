@@ -104,7 +104,7 @@ function Navbar({ sections }) {
     isMountedRef.current = true;
     pickNavBar();
     return () => (isMountedRef.current = false);
-  }, [pickNavBar]);
+  });
 
   useEffect(() => {
     isMountedRef.current = true;
