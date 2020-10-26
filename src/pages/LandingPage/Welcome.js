@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 
-import cover from "./img/photos/dock_view-min.jpg";
+import cover from "../../img/photos/dock_view-min.jpg";
 
 const useStyles = makeStyles(() => ({
   container: {

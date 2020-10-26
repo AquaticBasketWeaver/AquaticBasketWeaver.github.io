@@ -1,35 +1,20 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Welcome from "./Welcome";
-import About from "./About";
-import WorkExperience from "./WorkExperience";
-import Photography from "./Photography";
-import ContactMe from "./ContactMe";
-import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles(() => ({
-  app: {
-    overflowX: "hidden",
-  }
-}));
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import ContentPage from "./pages/ContentPage/ContentPage";
 
 function App() {
-  const classes = useStyles();
-  const sections = {
-    about: "About",
-    work: "Work",
-    photography: "Photography",
-    contact: "Contact",
-  };
   return (
-    <div className={classes.app}>
-      <Navbar sections={sections} />
-      <Welcome />
-      <About id={sections.about} />
-      <WorkExperience id={sections.work} />
-      <Photography id={sections.photography} />
-      <ContactMe id={sections.contact} />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/content">
+          <ContentPage />
+        </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

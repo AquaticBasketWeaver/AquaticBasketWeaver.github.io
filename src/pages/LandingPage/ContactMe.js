@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 import { Element } from "react-scroll";
-import Banner from "./Banner";
+import Banner from "../../components/Banner";
 import { Email } from "@material-ui/icons";
 
 const useStyles = makeStyles(() => ({
