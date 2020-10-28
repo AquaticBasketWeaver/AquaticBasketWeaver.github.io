@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles, Slide } from "@material-ui/core";
 import Gallery from "./Gallery";
 import SideBar from "./SideBar";
 import Music from "./Music";
+import {
+  getPhotosFromS3,
+} from "../../util/photosHelper";
 
 const useStyles = makeStyles(() => ({
   contentPage: {
@@ -24,6 +27,16 @@ function ContentPage() {
     music: "Music",
   };
   const [selectedContent, setSelectedContent] = useState(sections.photos);
+  const [photoArray, setPhotoArray] = useState([]);
+
+  useEffect(() => {
+    const getPhotos = async () => {
+      const photos = await getPhotosFromS3();
+      setPhotoArray(photos);
+    };
+    getPhotos();
+  }, []);
+
   return (
     <div className={classes.contentPage}>
       <SideBar
@@ -31,30 +44,25 @@ function ContentPage() {
         selectedContent={selectedContent}
         setSelectedContent={setSelectedContent}
       />
-      {selectedContent === sections.photos && (
-        <Slide
-          direction={"left"}
-          in={selectedContent === sections.photos}
-          mountOnEnter
-          unmountOnExit
-        >
-          <div>
-            <Gallery />
-          </div>
-        </Slide>
-      )}
-      {selectedContent === sections.music && (
-        <Slide
-          direction={"left"}
-          in={selectedContent === sections.music}
-          mountOnEnter
-          unmountOnExit
-        >
-          <div className={classes.musicSlider}>
-            <Music />
-          </div>
-        </Slide>
-      )}
+      <Slide
+        direction={"left"}
+        in={selectedContent === sections.photos}
+        style={selectedContent !== sections.photos ? { display: "none" } : {}}
+      >
+        <div>
+          <Gallery photoArray={photoArray} />
+        </div>
+      </Slide>
+      <Slide
+        direction={"left"}
+        in={selectedContent === sections.music}
+        style={selectedContent !== sections.music ? { display: "none" } : {}}
+        unmountOnExit
+      >
+        <div className={classes.musicSlider}>
+          <Music />
+        </div>
+      </Slide>
     </div>
   );
 }

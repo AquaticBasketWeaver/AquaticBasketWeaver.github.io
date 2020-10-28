@@ -13,6 +13,10 @@ import torontoOnTrees from "../img/photos/Toronto_on_Trees-min.jpg";
 // You might want to replace this photo with a better one
 import hk_harbor from "../img/photos/hk_harbor-min.jpg"
 
+import axios from "axios";
+import constants from "./constants";
+import config from "../config.json";
+
 const createPhotoObj = (thumbnail, image) => ({ thumbnail, image });
 
 export const createWelcomePhotoArray = () => {
@@ -34,7 +38,7 @@ export const createWelcomePhotoArray = () => {
 
 // This may be temporary for now. We may want to pull photos from 
 // s3 instead of just having the photos in the web page directly
-export const createGalleryPhotoArray = () => {
+const createGalleryPhotoArray = () => {
   const photoArray = [
     createPhotoObj(carousel, carousel),
     createPhotoObj(closeUpBee, closeUpBee),
@@ -51,4 +55,23 @@ export const createGalleryPhotoArray = () => {
     createPhotoObj(hk_harbor_with_ferry, hk_harbor_with_ferry),
   ]
   return photoArray;
-}
+};
+
+export const getPhotosFromS3 = async () => {
+  // When running locally, we're going to not call s3 because s3 costs money.
+  // Instead, we just have an aritificial delay to simulate the time it takes
+  // to get something from s3.
+  if (config.env === "local") {
+    const artificalDelay = async (ms) => {
+      return new Promise(resolve => setTimeout(resolve, ms))
+    };
+    await artificalDelay(3000);
+    return createGalleryPhotoArray();
+  }
+  
+  const { data } = await axios.get(`${constants.apiUrl}/photos/photography`);
+  return data.map((s3Object) => {
+    const formattedSrc = `data:${s3Object.ContentType};base64,${s3Object.Body}`;
+    return createPhotoObj(formattedSrc, formattedSrc);
+  });
+};

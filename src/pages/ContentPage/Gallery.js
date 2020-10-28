@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState, useRef } from "react";
 import { makeStyles, useTheme } from "@material-ui/core";
 import PhotoGrid from "../../components/PhotoGrid";
 import PhotoModal from "../../components/PhotoModal";
-import { createGalleryPhotoArray } from "../../util/photosHelper";
 
 /*
   If you have time, find a better way of getting this content from out under
@@ -19,10 +18,9 @@ const useStyles = makeStyles(() => ({
   photoGridContainerSm: { paddingTop: `${smToolbarPadding}px` },
 }));
 
-function Gallery() {
+function Gallery({ photoArray }) {
   const classes = useStyles();
   const theme = useTheme();
-  const photoArray = createGalleryPhotoArray();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImg, setModalImg] = useState();
   const [containerClass, setContainerClass] = useState(
