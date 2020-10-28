@@ -11,7 +11,7 @@ import riverwood from "../img/photos/Riverwood-min.jpg";
 import torontoOnTrees from "../img/photos/Toronto_on_Trees-min.jpg";
 
 // You might want to replace this photo with a better one
-import hk_harbor from "../img/photos/hk_harbor-min.jpg"
+import hk_harbor from "../img/photos/hk_harbor-min.jpg";
 
 import axios from "axios";
 import constants from "./constants";
@@ -36,7 +36,7 @@ export const createWelcomePhotoArray = () => {
   return photoArray;
 };
 
-// This may be temporary for now. We may want to pull photos from 
+// This may be temporary for now. We may want to pull photos from
 // s3 instead of just having the photos in the web page directly
 const createGalleryPhotoArray = () => {
   const photoArray = [
@@ -53,7 +53,7 @@ const createGalleryPhotoArray = () => {
     createPhotoObj(riverwood, riverwood),
     createPhotoObj(purpleFlower, purpleFlower),
     createPhotoObj(hk_harbor_with_ferry, hk_harbor_with_ferry),
-  ]
+  ];
   return photoArray;
 };
 
@@ -63,15 +63,23 @@ export const getPhotosFromS3 = async () => {
   // to get something from s3.
   if (config.env === "local") {
     const artificalDelay = async (ms) => {
-      return new Promise(resolve => setTimeout(resolve, ms))
+      return new Promise((resolve) => setTimeout(resolve, ms));
     };
     await artificalDelay(3000);
     return createGalleryPhotoArray();
   }
-  
-  const { data } = await axios.get(`${constants.apiUrl}/photos/photography`);
-  return data.map((s3Object) => {
-    const formattedSrc = `data:${s3Object.ContentType};base64,${s3Object.Body}`;
-    return createPhotoObj(formattedSrc, formattedSrc);
-  });
+
+  try {
+    const { data } = await axios.get(
+      `${constants.apiUrl}/photos/photography?page=1`
+    );
+    return data.map((s3Object) => {
+      const formattedSrc = `data:${s3Object.ContentType};base64,${s3Object.Body}`;
+      return createPhotoObj(formattedSrc, formattedSrc);
+    });
+  } catch (e) {
+    // if we don't get a request, just return an empty array for now
+    console.log(e);
+    return [];
+  }
 };
