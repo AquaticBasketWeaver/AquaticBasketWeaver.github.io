@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.69eda509.chunk.css",
-    "main.js": "/static/js/main.b626e0ec.chunk.js",
-    "main.js.map": "/static/js/main.b626e0ec.chunk.js.map",
+    "main.js": "/static/js/main.e0531336.chunk.js",
+    "main.js.map": "/static/js/main.e0531336.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.83c3e0c4.js",
     "runtime-main.js.map": "/static/js/runtime-main.83c3e0c4.js.map",
-    "static/js/2.78e6c240.chunk.js": "/static/js/2.78e6c240.chunk.js",
-    "static/js/2.78e6c240.chunk.js.map": "/static/js/2.78e6c240.chunk.js.map",
+    "static/js/2.19c33b90.chunk.js": "/static/js/2.19c33b90.chunk.js",
+    "static/js/2.19c33b90.chunk.js.map": "/static/js/2.19c33b90.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e01e87dcdd0093d6da3d5962e0512539.js": "/precache-manifest.e01e87dcdd0093d6da3d5962e0512539.js",
+    "precache-manifest.1cb5d0694d42ca514484d81552e9e503.js": "/precache-manifest.1cb5d0694d42ca514484d81552e9e503.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.78e6c240.chunk.js.LICENSE.txt": "/static/js/2.78e6c240.chunk.js.LICENSE.txt",
+    "static/js/2.19c33b90.chunk.js.LICENSE.txt": "/static/js/2.19c33b90.chunk.js.LICENSE.txt",
     "static/media/CtrlV-logo.png": "/static/media/CtrlV-logo.1409980e.png",
     "static/media/Purple_Flower-min.jpg": "/static/media/Purple_Flower-min.58696cb8.jpg",
     "static/media/Riverwood-min.jpg": "/static/media/Riverwood-min.69a0cfc5.jpg",
@@ -32,8 +32,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.83c3e0c4.js",
-    "static/js/2.78e6c240.chunk.js",
+    "static/js/2.19c33b90.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.b626e0ec.chunk.js"
+    "static/js/main.e0531336.chunk.js"
   ]
 }
