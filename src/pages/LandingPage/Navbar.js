@@ -78,7 +78,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Navbar({ sections }) {
+function Navbar({ sections, galleryPage, setGalleryPage }) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
@@ -264,6 +264,9 @@ function Navbar({ sections }) {
           <Button
             className={classes.toolbarButton}
             onClick={() => {
+              if (!galleryPage) {
+                setGalleryPage(1);
+              }
               history.push("/content");
             }}
           >

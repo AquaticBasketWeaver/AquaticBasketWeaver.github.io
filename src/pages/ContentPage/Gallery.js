@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   photoGridContainerSm: { paddingTop: `${smToolbarPadding}px` },
 }));
 
-function Gallery({ photoArray }) {
+function Gallery({ paginatedPhotoArray, galleryPage }) {
   const classes = useStyles();
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
@@ -76,7 +76,7 @@ function Gallery({ photoArray }) {
 
   return (
     <div className={containerClass}>
-      <PhotoGrid photoArray={photoArray} onThumbnailClick={onThumbnailClick} />
+      <PhotoGrid photoArray={paginatedPhotoArray[`page_${galleryPage}`]} onThumbnailClick={onThumbnailClick} />
       <PhotoModal
         modalImg={modalImg}
         modalOpen={modalOpen}

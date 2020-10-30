@@ -3,9 +3,8 @@ import { makeStyles, Slide } from "@material-ui/core";
 import Gallery from "./Gallery";
 import SideBar from "./SideBar";
 import Music from "./Music";
-import {
-  getPhotosFromS3,
-} from "../../util/photosHelper";
+import { getPhotosFromS3 } from "../../util/photosHelper";
+import constants from "../../util/constants";
 
 const useStyles = makeStyles(() => ({
   contentPage: {
@@ -20,22 +19,31 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ContentPage() {
+function ContentPage({ galleryPage, setGalleryPage }) {
   const classes = useStyles();
   const sections = {
     photos: "Photos",
     music: "Music",
   };
   const [selectedContent, setSelectedContent] = useState(sections.photos);
-  const [photoArray, setPhotoArray] = useState([]);
+  const [paginatedPhotoArray, setpaginatedPhotoArray] = useState((() => {
+    const photoArrayPagination = {};
+    for (let i = 0; i < constants.numberOfPages; i++) {
+      photoArrayPagination[`page_${i + 1}`] = [...Array(constants.galleryPageItems)];
+    }
+    return photoArrayPagination
+  })());
 
   useEffect(() => {
-    const getPhotos = async () => {
-      const photos = await getPhotosFromS3();
-      setPhotoArray(photos);
-    };
-    getPhotos();
-  }, []);
+    if (!galleryPage) {
+      setGalleryPage(1);
+    }
+    getPhotosFromS3(setpaginatedPhotoArray, paginatedPhotoArray, galleryPage);
+
+    // todo: this isn't great, if you have time find a way to only have this run once
+    //       while including the full dependency array
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [galleryPage]);
 
   return (
     <div className={classes.contentPage}>
@@ -50,7 +58,7 @@ function ContentPage() {
         style={selectedContent !== sections.photos ? { display: "none" } : {}}
       >
         <div>
-          <Gallery photoArray={photoArray} />
+          <Gallery paginatedPhotoArray={paginatedPhotoArray} galleryPage={galleryPage} />
         </div>
       </Slide>
       <Slide

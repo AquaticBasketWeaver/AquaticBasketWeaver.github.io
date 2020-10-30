@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-function LandingPage() {
+function LandingPage({ galleryPage, setGalleryPage }) {
   const classes = useStyles();
 
   const sections = {
@@ -25,11 +25,11 @@ function LandingPage() {
   };
   return (
     <div className={classes.landingPage}>
-      <Navbar sections={sections} />
+      <Navbar sections={sections} galleryPage={galleryPage} setGalleryPage={setGalleryPage} />
       <Welcome />
       <About id={sections.about} />
       <WorkExperience id={sections.work} />
-      <Photography id={sections.photography} />
+      <Photography id={sections.photography} galleryPage={galleryPage} setGalleryPage={setGalleryPage} />
       <ContactMe id={sections.contact} />
     </div>
   );

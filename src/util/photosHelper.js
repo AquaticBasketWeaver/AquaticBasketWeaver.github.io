@@ -57,7 +57,27 @@ const createGalleryPhotoArray = () => {
   return photoArray;
 };
 
-export const getPhotosFromS3 = async () => {
+const getPhotoList = async (page) => {
+  const { data } = await axios.get(
+    `${constants.apiUrl}/photos/image-list?page=${page}`
+  );
+  return data;
+};
+
+const getS3Image = async (key) => {
+  const { data } = await axios.get(
+    `${constants.apiUrl}/photos/image?key=${key}`
+  );
+  return data;
+};
+
+export const getPhotosFromS3 = async (
+  setPaginatedPhotoArray,
+  paginatedPhotoArray,
+  page = 1
+) => {
+  const pageKey = `page_${page}`;
+
   // When running locally, we're going to not call s3 because s3 costs money.
   // Instead, we just have an aritificial delay to simulate the time it takes
   // to get something from s3.
@@ -65,21 +85,45 @@ export const getPhotosFromS3 = async () => {
     const artificalDelay = async (ms) => {
       return new Promise((resolve) => setTimeout(resolve, ms));
     };
-    await artificalDelay(3000);
-    return createGalleryPhotoArray();
-  }
+    // delay for getting the list of items
+    await artificalDelay(200);
 
-  try {
-    const { data } = await axios.get(
-      `${constants.apiUrl}/photos/photography?page=1`
-    );
-    return data.map((s3Object) => {
-      const formattedSrc = `data:${s3Object.ContentType};base64,${s3Object.Body}`;
-      return createPhotoObj(formattedSrc, formattedSrc);
+    // Get photo items and put them into state while simulating time of http request
+    const photoGalleryArray = createGalleryPhotoArray();
+    photoGalleryArray.forEach(async (photoObj, i) => {
+      await artificalDelay(Math.floor(Math.random() * 5000) + 2000);
+      const newImageArray = paginatedPhotoArray[pageKey];
+      newImageArray[i] = photoObj
+      setPaginatedPhotoArray((ppa) => {
+        return {
+          ...ppa,
+          [pageKey]: newImageArray,
+        };
+      });
     });
-  } catch (e) {
-    // if we don't get a request, just return an empty array for now
-    console.log(e);
-    return [];
+  } else if (config.env === "prod") {
+    try {
+      if (!paginatedPhotoArray[pageKey][0]) {
+        const imageList = await getPhotoList(page);
+        imageList.forEach(async ({ Key }) => {
+          const rawImageObject = await getS3Image(Key);
+          const formattedSrc = `data:${rawImageObject.ContentType};base64,${rawImageObject.Body}`;
+          const newImageArray = paginatedPhotoArray[pageKey];
+          newImageArray[rawImageObject.Index] = createPhotoObj(
+            formattedSrc,
+            formattedSrc
+          );
+          setPaginatedPhotoArray((ppa) => {
+            return {
+              ...ppa,
+              [pageKey]: newImageArray,
+            };
+          });
+        });
+      }
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
   }
 };
