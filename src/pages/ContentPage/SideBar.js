@@ -16,16 +16,15 @@ import {
 } from "@material-ui/core";
 import { ArrowBack, Menu } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-
-const drawerWidth = 240;
+import constants from "../../util/constants";
 
 const useStyles = makeStyles(() => ({
   drawer: {
-    width: drawerWidth,
+    width: constants.drawerWidth,
     flexShrink: 0,
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: constants.drawerWidth,
   },
   listItem: {
     display: "flex",

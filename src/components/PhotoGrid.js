@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, makeStyles, Hidden, CircularProgress } from "@material-ui/core";
+import { Grid, makeStyles, Hidden } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   thumbnail: {
@@ -23,79 +23,58 @@ const useStyles = makeStyles(() => ({
   thumbnailContainer: {
     position: "relative",
   },
-  loadingContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "fixed",
-    width: "80%",
-    height: "100%",
-  },
-  loadingContainerMobile: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "fixed",
+  emptyImage: {
     width: "100%",
-    height: "100%",
+    paddingTop: "66.66%",
+    animation: "$pulse 5s ease-in-out 0s infinite",
+  },
+  "@keyframes pulse": {
+    "50%": {
+      backgroundColor: "rgba(38,149,235)",
+    },
   },
 }));
 
 function PhotoGrid({ children, photoArray, onThumbnailClick }) {
   const classes = useStyles();
+
   return (
     <>
-      {photoArray[0] ? (
-        <Grid container spacing={0}>
-          {photoArray.map((photoObj, index) => (
-            <Grid key={index} item md={4} sm={6} xs={12}>
-              <div className={classes.thumbnailContainer}>
-                {photoObj ? (
-                  <>
-                    <img
-                      src={photoObj.thumbnail}
-                      className={classes.thumbnail}
-                      alt={""}
-                    />
-                    <Hidden xsDown>
-                      <div
-                        className={classes.tint}
-                        onClick={() =>
-                          onThumbnailClick && onThumbnailClick(photoObj.image)
-                        }
-                      ></div>
-                    </Hidden>
-                  </>
-                ) : (
-                  // todo: make a fancy not yet loaded animation here
-                  ""
-                )}
-              </div>
-            </Grid>
-          ))}
-          {children && (
-            <Grid key={"More"} item md={4} sm={6} xs={12}>
-              {children}
-            </Grid>
-          )}
-        </Grid>
-      ) : (
-        <div>
-          {/* TODO: this is extremely janky */}
-          <Hidden smDown>
-            <div className={classes.loadingContainer}>
-              <CircularProgress />
+      <Grid container spacing={0}>
+        {photoArray.map((photoObj, index) => (
+          <Grid key={index} item md={4} sm={6} xs={12}>
+            <div className={classes.thumbnailContainer}>
+              {photoObj ? (
+                <>
+                  <img
+                    src={photoObj.thumbnail}
+                    className={classes.thumbnail}
+                    alt={""}
+                  />
+                  <Hidden xsDown>
+                    <div
+                      className={classes.tint}
+                      onClick={() =>
+                        onThumbnailClick && onThumbnailClick(photoObj.image)
+                      }
+                    ></div>
+                  </Hidden>
+                </>
+              ) : (
+                // todo: Right now all loading breaths at same rate, it'd be nice if they breathed randomly
+                <div
+                  className={classes.emptyImage}
+                ></div>
+              )}
             </div>
-          </Hidden>
-          <Hidden mdUp>
-            <div className={classes.loadingContainerMobile}>
-              <CircularProgress />
-            </div>
-          </Hidden>
-        </div>
-      )}
+          </Grid>
+        ))}
+        {children && (
+          <Grid key={"More"} item md={4} sm={6} xs={12}>
+            {children}
+          </Grid>
+        )}
+      </Grid>
     </>
   );
 }

@@ -81,26 +81,28 @@ export const getPhotosFromS3 = async (
   // When running locally, we're going to not call s3 because s3 costs money.
   // Instead, we just have an aritificial delay to simulate the time it takes
   // to get something from s3.
+  // Local will also populate all the pages with the same images for now
   if (config.env === "local") {
     const artificalDelay = async (ms) => {
       return new Promise((resolve) => setTimeout(resolve, ms));
     };
-    // delay for getting the list of items
-    await artificalDelay(200);
-
-    // Get photo items and put them into state while simulating time of http request
-    const photoGalleryArray = createGalleryPhotoArray();
-    photoGalleryArray.forEach(async (photoObj, i) => {
-      await artificalDelay(Math.floor(Math.random() * 5000) + 2000);
-      const newImageArray = paginatedPhotoArray[pageKey];
-      newImageArray[i] = photoObj
-      setPaginatedPhotoArray((ppa) => {
-        return {
-          ...ppa,
-          [pageKey]: newImageArray,
-        };
+    if (!paginatedPhotoArray[pageKey][0]) {
+      // delay for getting the list of items
+      await artificalDelay(200);
+      // Get photo items and put them into state while simulating time of http request
+      const photoGalleryArray = createGalleryPhotoArray();
+      photoGalleryArray.forEach(async (photoObj, i) => {
+        await artificalDelay(Math.floor(Math.random() * 5000) + 2000);
+        const newImageArray = paginatedPhotoArray[pageKey];
+        newImageArray[i] = photoObj;
+        setPaginatedPhotoArray((ppa) => {
+          return {
+            ...ppa,
+            [pageKey]: newImageArray,
+          };
+        });
       });
-    });
+    }
   } else if (config.env === "prod") {
     try {
       if (!paginatedPhotoArray[pageKey][0]) {

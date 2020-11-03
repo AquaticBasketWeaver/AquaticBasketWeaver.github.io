@@ -10,6 +10,8 @@ const useStyles = makeStyles(() => ({
   contentPage: {
     display: "flex",
     overflowX: "hidden",
+    width: "100vw",
+    height: "100vh",
   },
   musicSlider: {
     display: "flex",
@@ -17,6 +19,10 @@ const useStyles = makeStyles(() => ({
     height: "100vh",
     justifyContent: "center",
   },
+  photoSlider: {
+    height: "100vh",
+    width: "100%"
+  }
 }));
 
 function ContentPage({ galleryPage, setGalleryPage }) {
@@ -57,8 +63,8 @@ function ContentPage({ galleryPage, setGalleryPage }) {
         in={selectedContent === sections.photos}
         style={selectedContent !== sections.photos ? { display: "none" } : {}}
       >
-        <div>
-          <Gallery paginatedPhotoArray={paginatedPhotoArray} galleryPage={galleryPage} />
+        <div className={classes.photoSlider}>
+          <Gallery paginatedPhotoArray={paginatedPhotoArray} galleryPage={galleryPage} setGalleryPage={setGalleryPage} />
         </div>
       </Slide>
       <Slide

@@ -17,6 +17,7 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
+import constants from "../../util/constants"
 
 const navBarHeight = 64;
 
@@ -47,7 +48,7 @@ const useStyles = makeStyles(() => ({
     boxShadow: "none",
     backgroundColor: "transparent",
     transition: "background-color 200ms linear",
-    height: `${navBarHeight}px`,
+    height: `${constants.navBarHeight}`,
   },
   appBarScroll: {
     backgroundColor: "#fff",
@@ -70,7 +71,7 @@ const useStyles = makeStyles(() => ({
     color: "black",
   },
   list: {
-    paddingTop: `${navBarHeight}px`,
+    paddingTop: `${constants.navBarHeight}`,
     paddingLeft: `${45}px`,
   },
   spacer: {

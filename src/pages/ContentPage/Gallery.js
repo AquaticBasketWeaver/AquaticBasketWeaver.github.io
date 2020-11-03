@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState, useRef } from "react";
 import { makeStyles, useTheme } from "@material-ui/core";
 import PhotoGrid from "../../components/PhotoGrid";
 import PhotoModal from "../../components/PhotoModal";
+import { Pagination } from "@material-ui/lab";
+import constants from "../../util/constants";
 
 /*
   If you have time, find a better way of getting this content from out under
@@ -14,11 +16,22 @@ const smToolbarPadding = 56;
 
 const useStyles = makeStyles(() => ({
   photoGridContainer: { paddingTop: `0px` },
-  photoGridContainerMd: { paddingTop: `${mdToolbarPadding}px` },
-  photoGridContainerSm: { paddingTop: `${smToolbarPadding}px` },
+  photoGridContainerMd: {
+    paddingTop: `${mdToolbarPadding}px`,
+  },
+  photoGridContainerSm: {
+    paddingTop: `${smToolbarPadding}px`,
+  },
+  paginationContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "2em 0",
+    width: "100%",
+  },
 }));
 
-function Gallery({ paginatedPhotoArray, galleryPage }) {
+function Gallery({ paginatedPhotoArray, galleryPage, setGalleryPage }) {
   const classes = useStyles();
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
@@ -74,9 +87,16 @@ function Gallery({ paginatedPhotoArray, galleryPage }) {
     setModalOpen(true);
   };
 
+  const handlePageChange = (event, value) => {
+    setGalleryPage(value);
+  };
+
   return (
     <div className={containerClass}>
-      <PhotoGrid photoArray={paginatedPhotoArray[`page_${galleryPage}`]} onThumbnailClick={onThumbnailClick} />
+      <PhotoGrid
+        photoArray={paginatedPhotoArray[`page_${galleryPage}`]}
+        onThumbnailClick={onThumbnailClick}
+      />
       <PhotoModal
         modalImg={modalImg}
         modalOpen={modalOpen}
@@ -84,6 +104,14 @@ function Gallery({ paginatedPhotoArray, galleryPage }) {
           setModalOpen(false);
         }}
       />
+      <div className={classes.paginationContainer}>
+        <Pagination
+          size={"medium"}
+          count={constants.numberOfPages}
+          page={galleryPage}
+          onChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 }
