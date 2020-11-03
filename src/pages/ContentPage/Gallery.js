@@ -104,14 +104,16 @@ function Gallery({ paginatedPhotoArray, galleryPage, setGalleryPage }) {
           setModalOpen(false);
         }}
       />
-      <div className={classes.paginationContainer}>
-        <Pagination
-          size={"medium"}
-          count={constants.numberOfPages}
-          page={galleryPage}
-          onChange={handlePageChange}
-        />
-      </div>
+      {constants.numberOfPages > 1 && (
+        <div className={classes.paginationContainer}>
+          <Pagination
+            size={"medium"}
+            count={constants.numberOfPages}
+            page={galleryPage}
+            onChange={handlePageChange}
+          />
+        </div>
+      )}
     </div>
   );
 }
