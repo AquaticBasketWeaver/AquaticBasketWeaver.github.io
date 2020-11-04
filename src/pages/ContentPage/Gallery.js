@@ -3,7 +3,6 @@ import { makeStyles, useTheme } from "@material-ui/core";
 import PhotoGrid from "../../components/PhotoGrid";
 import PhotoModal from "../../components/PhotoModal";
 import { Pagination } from "@material-ui/lab";
-import constants from "../../util/constants";
 
 /*
   If you have time, find a better way of getting this content from out under
@@ -31,7 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Gallery({ paginatedPhotoArray, galleryPage, setGalleryPage }) {
+function Gallery({ paginatedPhotoArray, galleryPage, setGalleryPage, numberOfPages }) {
   const classes = useStyles();
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
@@ -104,16 +103,16 @@ function Gallery({ paginatedPhotoArray, galleryPage, setGalleryPage }) {
           setModalOpen(false);
         }}
       />
-      {constants.numberOfPages > 1 && (
-        <div className={classes.paginationContainer}>
-          <Pagination
-            size={"medium"}
-            count={constants.numberOfPages}
-            page={galleryPage}
-            onChange={handlePageChange}
-          />
-        </div>
-      )}
+      {numberOfPages > 1 && (
+          <div className={classes.paginationContainer}>
+            <Pagination
+              size={"medium"}
+              count={numberOfPages}
+              page={galleryPage}
+              onChange={handlePageChange}
+            />
+          </div>
+        )}
     </div>
   );
 }
