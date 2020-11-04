@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa3dbed9fd0b889fb4baee19cda4241a",
+    "revision": "87e4a4f2c875a1d82d32d8b2beb56193",
     "url": "/index.html"
   },
   {
-    "revision": "c6023d7a0c2d496e0feb",
+    "revision": "12fb6e92993a55e09842",
     "url": "/static/css/main.69eda509.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.27f1d09d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c6023d7a0c2d496e0feb",
-    "url": "/static/js/main.3cd93b25.chunk.js"
+    "revision": "12fb6e92993a55e09842",
+    "url": "/static/js/main.c1d348f7.chunk.js"
   },
   {
     "revision": "73635f645c271e35ff15",
@@ -88,7 +88,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/resume.02c26157.yaml"
   },
   {
-    "revision": "04c5598892ad44dc98fe4790a83585a0",
-    "url": "/static/media/zenreach.04c55988.svg"
+    "revision": "cd29abcf3c33880200d7b9a6d627caae",
+    "url": "/static/media/zenreach.cd29abcf.svg"
   }
 ]);
