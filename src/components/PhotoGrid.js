@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, makeStyles, Hidden } from "@material-ui/core";
+import constants from "../util/constants";
 
 const useStyles = makeStyles(() => ({
   thumbnail: {
@@ -37,38 +38,37 @@ const useStyles = makeStyles(() => ({
 
 function PhotoGrid({ children, photoArray, onThumbnailClick }) {
   const classes = useStyles();
-
   return (
     <>
       <Grid container spacing={0}>
-        {photoArray.map((photoObj, index) => (
-          <Grid key={index} item md={4} sm={6} xs={12}>
-            <div className={classes.thumbnailContainer}>
-              {photoObj ? (
-                <>
-                  <img
-                    src={photoObj.thumbnail}
-                    className={classes.thumbnail}
-                    alt={""}
-                  />
-                  <Hidden xsDown>
-                    <div
-                      className={classes.tint}
-                      onClick={() =>
-                        onThumbnailClick && onThumbnailClick(photoObj.image)
-                      }
-                    ></div>
-                  </Hidden>
-                </>
-              ) : (
-                // todo: Right now all loading breaths at same rate, it'd be nice if they breathed randomly
-                <div
-                  className={classes.emptyImage}
-                ></div>
-              )}
-            </div>
-          </Grid>
-        ))}
+        {(photoArray ? photoArray : [...Array(constants.galleryPageItems)]).map(
+          (photoObj, index) => (
+            <Grid key={index} item md={4} sm={6} xs={12}>
+              <div className={classes.thumbnailContainer}>
+                {photoObj ? (
+                  <>
+                    <img
+                      src={photoObj.thumbnail}
+                      className={classes.thumbnail}
+                      alt={""}
+                    />
+                    <Hidden xsDown>
+                      <div
+                        className={classes.tint}
+                        onClick={() =>
+                          onThumbnailClick && onThumbnailClick(photoObj.image)
+                        }
+                      ></div>
+                    </Hidden>
+                  </>
+                ) : (
+                  // todo: Right now all loading breaths at same rate, it'd be nice if they breathed randomly
+                  <div className={classes.emptyImage}></div>
+                )}
+              </div>
+            </Grid>
+          )
+        )}
         {children && (
           <Grid key={"More"} item md={4} sm={6} xs={12}>
             {children}

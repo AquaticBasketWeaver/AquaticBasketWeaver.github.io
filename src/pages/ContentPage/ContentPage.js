@@ -4,7 +4,6 @@ import Gallery from "./Gallery";
 import SideBar from "./SideBar";
 import Music from "./Music";
 import { getPhotosFromS3 } from "../../util/photosHelper";
-import constants from "../../util/constants";
 
 const useStyles = makeStyles(() => ({
   contentPage: {
@@ -21,8 +20,8 @@ const useStyles = makeStyles(() => ({
   },
   photoSlider: {
     height: "100vh",
-    width: "100%"
-  }
+    width: "100%",
+  },
 }));
 
 function ContentPage({ galleryPage, setGalleryPage }) {
@@ -32,19 +31,24 @@ function ContentPage({ galleryPage, setGalleryPage }) {
     music: "Music",
   };
   const [selectedContent, setSelectedContent] = useState(sections.photos);
-  const [paginatedPhotoArray, setpaginatedPhotoArray] = useState((() => {
-    const photoArrayPagination = {};
-    for (let i = 0; i < constants.numberOfPages; i++) {
-      photoArrayPagination[`page_${i + 1}`] = [...Array(constants.galleryPageItems)];
-    }
-    return photoArrayPagination
-  })());
+  const [imageList, setImageList] = useState();
+  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [paginatedPhotoArray, setpaginatedPhotoArray] = useState({});
 
   useEffect(() => {
     if (!galleryPage) {
       setGalleryPage(1);
     }
-    getPhotosFromS3(setpaginatedPhotoArray, paginatedPhotoArray, galleryPage);
+
+    // TODO: this one function seems extremely overloaded
+    getPhotosFromS3(
+      setNumberOfPages,
+      setpaginatedPhotoArray,
+      paginatedPhotoArray,
+      imageList,
+      setImageList,
+      galleryPage
+    );
 
     // todo: this isn't great, if you have time find a way to only have this run once
     //       while including the full dependency array
@@ -64,7 +68,12 @@ function ContentPage({ galleryPage, setGalleryPage }) {
         style={selectedContent !== sections.photos ? { display: "none" } : {}}
       >
         <div className={classes.photoSlider}>
-          <Gallery paginatedPhotoArray={paginatedPhotoArray} galleryPage={galleryPage} setGalleryPage={setGalleryPage} />
+          <Gallery
+            paginatedPhotoArray={paginatedPhotoArray}
+            galleryPage={galleryPage}
+            setGalleryPage={setGalleryPage}
+            numberOfPages={numberOfPages}
+          />
         </div>
       </Slide>
       <Slide
