@@ -8,9 +8,6 @@ import { getPhotosFromS3 } from "../../util/photosHelper";
 const useStyles = makeStyles(() => ({
   contentPage: {
     display: "flex",
-    overflowX: "hidden",
-    width: "100vw",
-    height: "100vh",
   },
   musicSlider: {
     display: "flex",
