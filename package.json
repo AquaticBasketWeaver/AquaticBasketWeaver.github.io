@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "prebuild.sh prod && npm run build && prebuild.sh local",
+    "predeploy-prod": "prebuild.sh prod && npm run build && prebuild.sh dev",
+    "predeploy-local": "prebuild.sh local && npm run build && prebuild.sh dev",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
