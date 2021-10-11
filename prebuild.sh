@@ -8,4 +8,8 @@ elif [ $1 == 'local' ]
 then
     echo "Changing config to local"
     cat ./src/configs/localConfig.json > ./src/config.json
+elif [ $1 == 'dev' ] 
+then
+    echo "Changing config to dev"
+    cat ./src/configs/devConfig.json > ./src/config.json
 fi
