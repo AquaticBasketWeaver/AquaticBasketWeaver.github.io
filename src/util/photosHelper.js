@@ -87,7 +87,7 @@ export const getPhotosFromS3 = async (
   // Instead, we just have an aritificial delay to simulate the time it takes
   // to get something from s3.
   // Local will also populate all the pages with the same images for now
-  if (config.env === "local") {
+  if (config.env === "dev") {
     const artificalDelay = async (ms) => {
       return new Promise((resolve) => setTimeout(resolve, ms));
     };
@@ -103,6 +103,24 @@ export const getPhotosFromS3 = async (
       const photoGalleryArray = createGalleryPhotoArray();
       photoGalleryArray.forEach(async (photoObj, i) => {
         await artificalDelay(Math.floor(Math.random() * 5000) + 2000);
+        updatedPhotoArray[pageKey][i] = photoObj;
+        setPaginatedPhotoArray((ppa) => {
+          return {
+            ...ppa,
+            ...updatedPhotoArray,
+          };
+        });
+      });
+    }
+  } else if (config.env === "local") {
+    if (!paginatedPhotoArray[pageKey]) {
+      const updatedPhotoArray = {
+        [pageKey]: [...Array(constants.galleryPageItems)]
+      };
+
+      // Get photo items and put them into state while simulating time of http request
+      const photoGalleryArray = createGalleryPhotoArray();
+      photoGalleryArray.forEach(async (photoObj, i) => {
         updatedPhotoArray[pageKey][i] = photoObj;
         setPaginatedPhotoArray((ppa) => {
           return {
